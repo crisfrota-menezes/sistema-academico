@@ -5,31 +5,31 @@
 
 class Disciplina
 {
-  private:
-    int id;
-    char nome[50];
-    char area_conhecimento [50];
-    Departamento* pDptoAssociado;
+private:
+  int id;
+  char nome[50];
+  char area_conhecimento[50];
+  Departamento *pDptoAssociado;
 
-    ListaAlunos ObjAlunos;
+  ListaAlunos ObjAlunos;
 
-    public:
-    Disciplina (int na = 45, const char* ac = "");
-    ~Disciplina ();
+public:
+  Disciplina(int na = 45, const char *ac = "");
+  ~Disciplina();
 
-    Disciplina* pProx;
-    Disciplina* pAnte;
+  Disciplina *pProx;
+  Disciplina *pAnte;
 
-    void setId(int n);
-    int getId();
+  void setId(int n);
+  int getId();
 
-    void setNome(const char* n);
-    char* getNome();
+  void setNome(const char *n);
+  char *getNome();
 
-    void setDepartamento(Departamento* pDpto);
-    Departamento* getDepartamento();
+  void setDepartamento(Departamento *pDpto);
+  Departamento *getDepartamento();
 
-    void incluirAluno(Aluno * pA);
-    void listarAlunos();
-    void listarAlunos2();
+  void incluirAluno(Aluno *pA);
+  void listarAlunos();
+  void listarAlunos2();
 };

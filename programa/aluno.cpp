@@ -1,4 +1,5 @@
 #include "aluno.hpp"
+#include "disciplina.hpp"
 
 Aluno::Aluno(int diaNa, int mesNa, int anoNa, const char *nome) : Pessoa(diaNa, mesNa, anoNa, nome)
 {
@@ -43,4 +44,14 @@ void Aluno::setId(int i)
 int Aluno::getId()
 {
   return id;
+}
+
+void Aluno::setDisciplina(Disciplina *d)
+{
+  pDisciplina = d;
+}
+
+Disciplina *Aluno::getDisciplina()
+{
+  return pDisciplina;
 }

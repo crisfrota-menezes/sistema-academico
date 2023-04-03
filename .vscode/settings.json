@@ -31,5 +31,8 @@
     "**/.vscode/**"
   ],
   "C_Cpp_Runner.useAddressSanitizer": false,
-  "cSpell.words": ["Depto", "Dpto"]
+  "cSpell.words": ["Depto", "Dpto"],
+  "files.associations": {
+    "ostream": "cpp"
+  }
 }

@@ -2,19 +2,22 @@
 
 #include "aluno.hpp"
 
+class Disciplina;
+
 class elAluno
 {
 private:
-  Aluno* pAluno;
+  Aluno *pAluno;
 
 public:
-   elAluno ();
-  ~elAluno ();
+  elAluno();
+  ~elAluno();
 
-  elAluno* pAnte;
-  elAluno* pProx;
+  elAluno *pAnte;
+  elAluno *pProx;
 
-  void setAluno (Aluno * pA);
-  Aluno* getAluno ();
-  char* getNome ();
+  void setAluno(Aluno *pA);
+  Aluno *getAluno();
+  char *getNome();
+  char *getNomeDisciplina();
 };

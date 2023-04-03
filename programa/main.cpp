@@ -1,9 +1,9 @@
 #include "principal.hpp"
 
-int main ()
+int main()
 {
   Principal objetoPrincipal;
   cout << "fim" << endl;
-  getchar ();
+  getchar();
   return 0;
 }

@@ -8,20 +8,20 @@ class Departamento
 {
 private:
   char nomeD[30];
-  Universidade* depUni;
-  listaDisciplinas* pObjLDisciplinas;
+  Universidade *depUni;
+  listaDisciplinas *pObjLDisciplinas;
 
 public:
-    Departamento ();
-   ~Departamento ();
+  Departamento();
+  ~Departamento();
 
-  void setNome (const char *n);
-  char *getNome ();
+  void setNome(const char *n);
+  char *getNome();
 
-  void setUniversidade (Universidade* dU);
-  Universidade* getUniversidade ( );
+  void setUniversidade(Universidade *dU);
+  Universidade *getUniversidade();
 
-  void incluiDisciplina(Disciplina* dD);
+  void incluiDisciplina(Disciplina *dD);
   void listeDisciplinas();
   void listeDisciplinas2();
 };

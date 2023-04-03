@@ -1,4 +1,5 @@
 #include "elAluno.hpp"
+#include "disciplina.hpp"
 
 elAluno::elAluno()
 {
@@ -25,4 +26,9 @@ Aluno *elAluno::getAluno()
 char *elAluno::getNome()
 {
   return pAluno->getNome();
+}
+
+char *elAluno::getNomeDisciplina()
+{
+  return pAluno->getDisciplina()->getNome(); // retorna o nome da disciplina do aluno
 }

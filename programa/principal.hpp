@@ -17,7 +17,7 @@ private:
   Departamento DAINF;
   Departamento FisicaPrinceton;
   Departamento MatematicaCambridge;
-  
+
   Professor Cristiano;
   Professor Einstein;
   Professor Newton;
@@ -29,7 +29,7 @@ private:
 
   Aluno AAA;
   Aluno BBB;
-  Aluno CCC; 
+  Aluno CCC;
   Aluno DDD;
   Aluno EEE;
 
@@ -38,20 +38,19 @@ private:
   int anoAtual;
 
 public:
-    Principal ();
-   ~Principal ();
+  Principal();
+  ~Principal();
 
-  void inicializa ( );
-  void inicializaAlunos ( );
-  void inicializaUniversidades ( );
-  void inicializaDepartamentos ( );
-  void inicializaProfessores ( );
-  void inicializaDisciplinas ( );
-  
-  void executar ();
+  void inicializa();
+  void inicializaAlunos();
+  void inicializaUniversidades();
+  void inicializaDepartamentos();
+  void inicializaProfessores();
+  void inicializaDisciplinas();
 
-  void infoProfs ( );
-  void listaDiscDeptos ( );
-  void listaAlunosDisc ( );
+  void executar();
 
+  void infoProfs();
+  void listaDiscDeptos();
+  void listaAlunosDisc();
 };

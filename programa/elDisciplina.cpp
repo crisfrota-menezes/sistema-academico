@@ -1,24 +1,24 @@
 #include "elDisciplina.hpp"
 
-elDisciplina::elDisciplina ( )
+elDisciplina::elDisciplina()
 {
-pProx = NULL;
-pAnte = NULL;
+    pProx = NULL;
+    pAnte = NULL;
 }
-elDisciplina::~elDisciplina ( )
+elDisciplina::~elDisciplina()
 {
-pProx = NULL;
-pAnte = NULL;
+    pProx = NULL;
+    pAnte = NULL;
 }
-void elDisciplina::setDisciplina ( Disciplina* pdi)
+void elDisciplina::setDisciplina(Disciplina *pdi)
 {
-pDisciplina = pdi;
+    pDisciplina = pdi;
 }
-Disciplina* elDisciplina::getDisciplina ( )
+Disciplina *elDisciplina::getDisciplina()
 {
-return pDisciplina;
+    return pDisciplina;
 }
-char* elDisciplina::getNome ( )
+char *elDisciplina::getNome()
 {
-return pDisciplina->getNome ( );
+    return pDisciplina->getNome();
 }
