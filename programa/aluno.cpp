@@ -1,49 +1,46 @@
 #include "aluno.hpp"
 
-Aluno::Aluno ( int diaNa, int mesNa, int anoNa, const char* nome) :
-Pessoa ( diaNa, mesNa, anoNa, nome)
+Aluno::Aluno(int diaNa, int mesNa, int anoNa, const char *nome) : Pessoa(diaNa, mesNa, anoNa, nome)
 {
-  
 }
 
-Aluno::Aluno ( int i) :
-Pessoa ( )
+Aluno::Aluno(int i) : Pessoa()
 {
-  int id;
+  int ID;
+  ID = i;
   RA = 0;
 }
 
-Aluno::~Aluno ( )
+Aluno::~Aluno()
 {
-  
 }
 
-void Aluno::setRa (int ra)
+void Aluno::setRa(int ra)
 {
   RA = ra;
 }
 
-int Aluno::getRa ()
+int Aluno::getRa()
 {
   return RA;
 }
 
-void Aluno::setDepartamento ( Departamento* d )
+void Aluno::setDepartamento(Departamento *d)
 {
-	DeptoAssociado = d;
+  DeptoAssociado = d;
 }
 
-Departamento* Aluno::getDepartamento ()
+Departamento *Aluno::getDepartamento()
 {
-	return DeptoAssociado;
+  return DeptoAssociado;
 }
 
 void Aluno::setId(int i)
 {
-	id = i;
+  id = i;
 }
 
 int Aluno::getId()
 {
-	return id;
+  return id;
 }

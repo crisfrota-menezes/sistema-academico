@@ -7,14 +7,13 @@ class Universidade
 {
 private:
   char nomeU[30];
-  list <Departamento*> pDpto;
-  int ctd;
+  list<Departamento *> pDpto;
 
 public:
-    Universidade (const char *n = "");
-   ~Universidade ();
+  Universidade();
+  ~Universidade();
 
-  void setNome (const char *n);
-  char *getNome ();
-  void setDepartamento (Departamento * pDep, int ctd);
+  void setNome(const char *n);
+  char *getNome();
+  void setDepartamento(Departamento *pDep, int ctd);
 };
