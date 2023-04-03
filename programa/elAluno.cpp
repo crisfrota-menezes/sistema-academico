@@ -3,13 +3,13 @@
 elAluno::elAluno()
 {
   pProx = NULL;
-    pAnte = NULL;
+  pAnte = NULL;
 }
 
 elAluno::~elAluno()
 {
   pProx = NULL;
-    pAnte = NULL;
+  pAnte = NULL;
 }
 
 void elAluno::setAluno(Aluno *pA)
@@ -17,12 +17,12 @@ void elAluno::setAluno(Aluno *pA)
   pAluno = pA;
 }
 
-Aluno* elAluno::getAluno()
+Aluno *elAluno::getAluno()
 {
   return pAluno;
 }
 
-char* elAluno::getNome()
+char *elAluno::getNome()
 {
   return pAluno->getNome();
 }
