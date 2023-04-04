@@ -21,7 +21,10 @@
   "C_Cpp_Runner.compilerArgs": [],
   "C_Cpp_Runner.linkerArgs": [],
   "C_Cpp_Runner.includePaths": [],
-  "C_Cpp_Runner.includeSearch": ["*", "**/*"],
+  "C_Cpp_Runner.includeSearch": [
+    "*",
+    "**/*"
+  ],
   "C_Cpp_Runner.excludeSearch": [
     "**/build",
     "**/build/**",
@@ -31,7 +34,14 @@
     "**/.vscode/**"
   ],
   "C_Cpp_Runner.useAddressSanitizer": false,
-  "cSpell.words": ["DAINF", "Depto", "Dpto", "Fisica", "Matematica", "paux"],
+  "cSpell.words": [
+    "DAINF",
+    "Depto",
+    "Dpto",
+    "Fisica",
+    "Matematica",
+    "paux"
+  ],
   "files.associations": {
     "ostream": "cpp"
   },
