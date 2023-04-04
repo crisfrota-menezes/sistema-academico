@@ -1,11 +1,13 @@
 #pragma once
 
-#include "departamento.hpp"
 #include "elDepartamento.hpp"
+#include "departamento.hpp"
+#include <iostream>
+using namespace std;
 
 class listaDepartamentos
 {
-    private:
+private:
     int cont_dep;
     int numero_dep;
     char nome[30];
@@ -13,7 +15,7 @@ class listaDepartamentos
     elDepartamento *pElDepartamentoPrim;
     elDepartamento *pElDepartamentoAtual;
 
-    public:
+public:
     listaDepartamentos(int nd = 1000, const char *n = "");
     ~listaDepartamentos();
 

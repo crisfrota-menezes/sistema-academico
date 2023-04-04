@@ -1,7 +1,7 @@
 #include "listaDepartamento.hpp"
 #include <string.h>
 
-listaDepartamentos::listaDepartamentos()
+listaDepartamentos::listaDepartamentos(int nd, const char *n)
 {
     cont_dep = 0;
     numero_dep = nd;
@@ -16,7 +16,7 @@ listaDepartamentos::~listaDepartamentos()
     paux1 = pElDepartamentoPrim;
     while (paux1 != NULL)
     {
-        paux2 = paux1->getElDepartamento();
+        paux2 = paux1->pProx;
         delete paux1;
         paux1 = paux2;
     }
@@ -38,27 +38,26 @@ void listaDepartamentos::incluiDepartamento(Departamento *pDe)
     pAux->pAnte = NULL;
 
     if (
-        ((cont_dep < numero_dep) && (pd != NULL)) ||
-        ((numero_dep == -1) && (pd != NULL)))
+        ((cont_dep < numero_dep) && (pDe != NULL)) ||
+        ((numero_dep == -1) && (pDe != NULL)))
     {
 
         if (pElDepartamentoPrim == NULL)
         {
-            pElDepartamentoPrim = paux;
-            pElDepartamentoAtual = paux;
+            pElDepartamentoPrim = pAux;
+            pElDepartamentoAtual = pAux;
         }
         else
         {
-            pElDepartamentoAtual->pProx = paux;
-            paux->pAnte = pElDepartamentoAtual;
-            pElDepartamentoAtual = paux;
+            pElDepartamentoAtual->pProx = pAux;
+            pAux->pAnte = pElDepartamentoAtual;
+            pElDepartamentoAtual = pAux;
         }
         cont_dep++;
     }
     else
     {
-        // printf ("Aluno não incluído. Turma já lotada em %i alunos \n", numero_alunos );
-        cout << "Departamento não incluído. Quantia de deps já lotada em " << numero_dep << " departamentos." << endl;
+        cout << "Departamento não incluído. Quantia de deps já lotada em" << numero_dep << " departamentos." << endl;
     }
 }
 
@@ -68,7 +67,7 @@ void listaDepartamentos::listeDepartamentos()
     pAux = pElDepartamentoPrim;
     while (pAux != NULL)
     {
-	    cout << " Departamento " << pAux->getNome() << " da universidade " << nome << "." << endl;
+        cout << " Departamento " << pAux->getNome() << " da universidade " << nome << "." << endl;
         pAux = pAux->pProx;
     }
 }

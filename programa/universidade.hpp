@@ -6,7 +6,7 @@ class Universidade
 {
 private:
   char nomeU[30];
-  listaDepartamento *ObjLDepartamentos;
+  listaDepartamentos ObjLDepartamentos;
 
 public:
   Universidade();

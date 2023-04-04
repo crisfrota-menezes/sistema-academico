@@ -1,4 +1,5 @@
 #include "elDepartamento.hpp"
+#include <cstddef>
 
 elDepartamento::elDepartamento()
 {
