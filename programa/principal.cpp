@@ -56,17 +56,11 @@ void Principal::inicializaDepartamentos()
   FisicaPrinceton.setNome("Fisica");
   MatematicaCambridge.setNome("Matematica");
 
-  UTFPR.setDepartamento(&DAINF, 0);
-  UTFPR.setDepartamento(&ModaUTFPR, 1);
-  UTFPR.setDepartamento(&TecnologiaUTFPR, 2);
-  Princeton.setDepartamento(&FisicaPrinceton, 0);
-  Cambridge.setDepartamento(&MatematicaCambridge, 0);
-
-  ModaUTFPR.setUniversidade(&UTFPR);
-  TecnologiaUTFPR.setUniversidade(&UTFPR);
-  DAINF.setUniversidade(&UTFPR);
-  FisicaPrinceton.setUniversidade(&Princeton);
-  MatematicaCambridge.setUniversidade(&Cambridge);
+  UTFPR.incluiDepartamento(&DAINF);
+  UTFPR.incluiDepartamento(&ModaUTFPR);
+  UTFPR.incluiDepartamento(&TecnologiaUTFPR);
+  Princeton.incluiDepartamento(&FisicaPrinceton);
+  Cambridge.incluiDepartamento(&MatematicaCambridge);
 }
 
 void Principal::inicializaProfessores()
@@ -89,7 +83,7 @@ void Principal::inicializaDisciplinas()
   Computacao1_2006.setNome("Computacao I 2006");
   Introd_Alg_2007.setNome("Intro de Algde Programacao 2007");
   Computacao2_2007.setNome("Computao II");
-  Metodos2_2007.setNome("Métodos II");
+  Metodos2_2007.setNome("Metodos II");
 
   Computacao1_2006.setDepartamento(&DAINF);
   Introd_Alg_2007.setDepartamento(&DAINF);

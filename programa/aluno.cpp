@@ -7,8 +7,7 @@ Aluno::Aluno(int diaNa, int mesNa, int anoNa, const char *nome) : Pessoa(diaNa, 
 
 Aluno::Aluno(int i) : Pessoa()
 {
-  int ID;
-  ID = i;
+  id = i;
   RA = 0;
 }
 
