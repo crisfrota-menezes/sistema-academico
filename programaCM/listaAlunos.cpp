@@ -1,7 +1,16 @@
 #include "listaAlunos.hpp"
 #include "disciplina.hpp"
+#include <iostream>
+using std::cerr;
+using std::ios;
 
-ListaAlunos::ListaAlunos(int na, const char *n)
+#include <fstream>
+using std::ifstream;
+using std::ofstream;
+
+#include <cstdlib>
+
+listaAlunos::listaAlunos(int na, const char *n)
 {
   cont_alunos = 0;
   numero_alunos = na;
@@ -11,7 +20,7 @@ ListaAlunos::ListaAlunos(int na, const char *n)
   strcpy(nome, n);
 }
 
-ListaAlunos::~ListaAlunos()
+listaAlunos::~listaAlunos()
 {
   elAluno *pAux1, *pAux2;
 
@@ -29,7 +38,7 @@ ListaAlunos::~ListaAlunos()
   pElAlunoAtual = NULL;
 }
 
-void ListaAlunos::incluirAluno(Aluno *pa)
+void listaAlunos::incluirAluno(Aluno *pa)
 {
   // Aqui é criado um ponteiro para LAluno
   elAluno *paux;
@@ -71,7 +80,7 @@ void ListaAlunos::incluirAluno(Aluno *pa)
   }
 }
 
-void ListaAlunos::listarAlunos()
+void listaAlunos::listarAlunos()
 {
   if (NULL != pElAlunoPrim)
   {
@@ -85,7 +94,7 @@ void ListaAlunos::listarAlunos()
   }
 }
 
-void ListaAlunos::listarAlunos2()
+void listaAlunos::listarAlunos2()
 {
   if (NULL != pElAlunoPrim)
   {
@@ -97,4 +106,74 @@ void ListaAlunos::listarAlunos2()
       aux = aux->pAnte;
     }
   }
+}
+
+void listaAlunos::salveAlunos()
+{
+  ofstream sAlunos("alunos.dat", ios::out);
+
+  if (!sAlunos)
+  {
+    cerr << "Arquivo não pode ser aberto" << endl;
+    fflush(stdin);
+    getchar();
+  }
+
+  elAluno *sauxElAluno;
+  sauxElAluno = pElAlunoPrim;
+
+  while (sauxElAluno != NULL)
+  {
+    Aluno *sauxAluno;
+    sauxAluno = sauxElAluno->getAluno();
+    sAlunos << sauxAluno->getId() << ' ' << sauxAluno->getRa() << ' ' << sauxAluno->getNome() << endl;
+    sauxElAluno = sauxElAluno->pProx;
+  }
+  sAlunos.close();
+}
+
+void listaAlunos::carregueAlunos()
+{
+  ifstream cAlunos("alunos.dat", ios::in);
+  if (!cAlunos)
+  {
+    cerr << "Arquivo não pode ser aberto." << endl;
+    fflush(stdin);
+    getchar();
+  }
+  limpaLista();
+
+  while (!cAlunos.eof())
+  {
+    Aluno *cauxAluno;
+    cauxAluno = new Aluno(-1);
+    int id;
+    int RA;
+    char nomeA[50];
+    cAlunos >> id >> RA >> nomeA;
+    if (0 != strcmp(nomeA, ""))
+    {
+      cauxAluno->setId(id);
+      cauxAluno->setRa(RA);
+      cauxAluno->setNome(nomeA);
+
+      incluirAluno(cauxAluno);
+    }
+  }
+  cAlunos.close();
+}
+
+void listaAlunos::limpaLista()
+{
+  elAluno *aux1, *aux2;
+  aux1 = pElAlunoPrim;
+  aux2 = aux1;
+  while (aux1 != NULL)
+  {
+    aux2 = aux1->pProx;
+    delete (aux1);
+    aux1 = aux2;
+  }
+  pElAlunoPrim = NULL;
+  pElAlunoAtual = NULL;
 }

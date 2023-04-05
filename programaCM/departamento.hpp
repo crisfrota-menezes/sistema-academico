@@ -8,11 +8,14 @@ class Departamento
 {
 private:
   char nomeD[30];
+  int id;
+
   Universidade *depUni;
   listaDisciplinas *pObjLDisciplinas;
 
 public:
   Departamento();
+  Departamento(int i);
   ~Departamento();
 
   void setNome(const char *n);

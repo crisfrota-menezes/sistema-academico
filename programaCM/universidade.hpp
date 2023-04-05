@@ -5,6 +5,7 @@
 class Universidade
 {
 private:
+  int id;
   char nomeU[30];
   listaDepartamentos ObjLDepartamentos;
 

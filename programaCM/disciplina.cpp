@@ -16,7 +16,7 @@ Disciplina::~Disciplina()
   pAnte = NULL;
 }
 
-void Disciplina::setId(int n) { id = n; }
+void Disciplina::setId(int i) { id = i; }
 
 int Disciplina::getId() { return id; }
 

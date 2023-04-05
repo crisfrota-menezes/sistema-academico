@@ -30,7 +30,7 @@ public:
     void
     calcula_idade(int diaAT, int mesAT, int anoAT);
     int getIdade();
-    void seId(int i) { id = i; }
+    void setId(int i) { id = i; }
     int getId() { return id; }
     char *getNome() { return nomeP; };
     void setNome(const char *nome) { strcpy(nomeP, nome); }

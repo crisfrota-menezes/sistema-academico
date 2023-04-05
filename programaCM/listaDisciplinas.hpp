@@ -18,6 +18,7 @@ public:
   ~listaDisciplinas();
 
   void setNome(const char *n);
+
   void incluiDisciplina(Disciplina *pDi);
   void listeDisciplinas();
   void listeDisciplinas2();

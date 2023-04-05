@@ -11,7 +11,7 @@ private:
   char area_conhecimento[50];
   Departamento *pDptoAssociado;
 
-  ListaAlunos ObjAlunos;
+  listaAlunos ObjAlunos;
 
 public:
   Disciplina(int na = 45, const char *ac = "");
@@ -20,7 +20,7 @@ public:
   Disciplina *pProx;
   Disciplina *pAnte;
 
-  void setId(int n);
+  void setId(int i);
   int getId();
 
   void setNome(const char *n);

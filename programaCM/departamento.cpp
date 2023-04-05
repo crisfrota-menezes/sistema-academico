@@ -4,6 +4,12 @@
 #include "disciplina.hpp"
 #include "listaDisciplinas.hpp"
 
+Departamento::Departamento(int i)
+{
+  id = i;
+  pObjLDisciplinas = new listaDisciplinas(-1, "");
+}
+
 Departamento::Departamento()
 {
   pObjLDisciplinas = new listaDisciplinas(-1, "");

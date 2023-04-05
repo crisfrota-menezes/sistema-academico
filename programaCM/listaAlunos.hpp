@@ -3,7 +3,7 @@
 #include "elAluno.hpp"
 #include "aluno.hpp"
 
-class ListaAlunos
+class listaAlunos
 {
 private:
   int numero_alunos;
@@ -14,10 +14,15 @@ private:
   elAluno *pElAlunoAtual;
 
 public:
-  ListaAlunos(int na, const char *n);
-  ~ListaAlunos();
+  listaAlunos(int na = 45, const char *n = "");
+  ~listaAlunos();
 
   void incluirAluno(Aluno *pA);
   void listarAlunos();
   void listarAlunos2();
+
+  void salveAlunos();
+  void carregueAlunos();
+
+  void limpaLista();
 };

@@ -6,6 +6,7 @@
 class Professor : public Pessoa
 {
 private:
+    int id;
     Universidade *pUnivFiliado;
     Departamento *pDptoFiliado;
 

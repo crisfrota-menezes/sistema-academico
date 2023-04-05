@@ -20,6 +20,7 @@ public:
     ~listaDepartamentos();
 
     void setNome(const char *n);
+
     void incluiDepartamento(Departamento *pDe);
     void listeDepartamentos();
     void listeDepartamentos2();
