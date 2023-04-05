@@ -548,6 +548,7 @@ void Principal::menu()
     case 5:
     {
       cout << "Saindo..." << endl;
+      system("pause");
     }
     break;
     default:
