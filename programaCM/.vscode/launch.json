@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/crisn/desktop/Sistema-academico/sistema-academico/programaCM",
-      "program": "c:/Users/crisn/desktop/Sistema-academico/sistema-academico/programaCM/build/Debug/outDebug",
+      "cwd": "c:/Users/crisn/Desktop/Sistema-academico/sistema-academico/programaCM",
+      "program": "c:/Users/crisn/Desktop/Sistema-academico/sistema-academico/programaCM/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
