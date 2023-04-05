@@ -1,5 +1,7 @@
 #include "principal.hpp"
 #include <time.h>
+#include <chrono>
+#include <thread>
 
 Principal::Principal()
 {
@@ -274,11 +276,12 @@ void Principal::menuExe()
 
 void Principal::cadDisciplina()
 {
-  
 }
 
 void Principal::cadDepartamento()
 {
+  using namespace std::chrono;
+  using namespace std::this_thread;
   char nomeUniversidade[100];
   char nomeDepartamento[100];
   Universidade *pUniv;
@@ -299,7 +302,7 @@ void Principal::cadDepartamento()
   else
   {
     cout << "Universidade nao encontrada!" << endl;
-    _sleep(200);
+    sleep_for(seconds(2));
   }
 }
 
