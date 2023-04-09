@@ -44,13 +44,3 @@ int Aluno::getId()
 {
   return id;
 }
-
-void Aluno::setDisciplina(Disciplina *d)
-{
-  pDisciplina = d;
-}
-
-Disciplina *Aluno::getDisciplina()
-{
-  return pDisciplina;
-}

@@ -11,7 +11,6 @@ private:
     int RA;
     int id;
     Departamento *DeptoAssociado;
-    Disciplina *pDisciplina;
 
 public:
     Aluno(int diaNa, int mesNa, int anoNa, const char *nome = "");
@@ -26,7 +25,4 @@ public:
 
     void setId(int i);
     int getId();
-
-    void setDisciplina(Disciplina *d);
-    Disciplina *getDisciplina();
 };

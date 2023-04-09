@@ -22,20 +22,7 @@ listaAlunos::listaAlunos(int na, const char *n)
 
 listaAlunos::~listaAlunos()
 {
-  elAluno *pAux1, *pAux2;
-
-  pAux1 = pElAlunoPrim;
-  pAux2 = pAux1;
-
-  while (pAux1 != NULL)
-  {
-    pAux2 = pAux1->pProx;
-    delete (pAux1);
-    pAux1 = pAux2;
-  }
-
-  pElAlunoPrim = NULL;
-  pElAlunoAtual = NULL;
+  limpaLista();
 }
 
 void listaAlunos::incluirAluno(Aluno *pa)
@@ -85,10 +72,9 @@ void listaAlunos::listarAlunos()
   if (NULL != pElAlunoPrim)
   {
     elAluno *aux = pElAlunoPrim;
-    cout << "Lista de alunos de: " << aux->getNomeDisciplina() << endl;
     while (NULL != aux)
     {
-      cout << "Aluno " << aux->getAluno()->getNome() << " matriculado na Disciplina " << aux->getNomeDisciplina() << endl;
+      cout << "Aluno " << aux->getNome() << " matriculado na Disciplina " << nome << endl;
       aux = aux->pProx;
     }
   }
@@ -99,10 +85,9 @@ void listaAlunos::listarAlunos2()
   if (NULL != pElAlunoPrim)
   {
     elAluno *aux = pElAlunoAtual;
-    cout << "Lista de alunos de: " << aux->getNomeDisciplina() << endl;
     while (NULL != aux)
     {
-      cout << "Aluno " << aux->getAluno()->getNome() << " matriculado na Disciplina " << aux->getNomeDisciplina() << endl;
+      cout << "Aluno " << aux->getAluno()->getNome() << " matriculado na Disciplina " << nome << endl;
       aux = aux->pAnte;
     }
   }
@@ -119,12 +104,12 @@ void listaAlunos::salveAlunos()
     getchar();
   }
 
-  elAluno *sauxElAluno;
+  elAluno *sauxElAluno = NULL;
+  Aluno *sauxAluno = NULL;
   sauxElAluno = pElAlunoPrim;
 
   while (sauxElAluno != NULL)
   {
-    Aluno *sauxAluno;
     sauxAluno = sauxElAluno->getAluno();
     sAlunos << sauxAluno->getId() << ' ' << sauxAluno->getRa() << ' ' << sauxAluno->getNome() << endl;
     sauxElAluno = sauxElAluno->pProx;

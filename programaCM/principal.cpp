@@ -278,7 +278,7 @@ void Principal::carregarProfessores() {}
 void Principal::menuCad()
 {
   int op = -1;
-  while (op != 4)
+  while (op != 5)
   {
     system("cls");
     cout << "Informe sua opcao: " << endl;
@@ -328,7 +328,7 @@ void Principal::menuCad()
 void Principal::menuExe()
 {
   int op = -1;
-  while (op != 4)
+  while (op != 5)
   {
     system("cls");
     cout << "Informe sua opcao: " << endl;
@@ -512,7 +512,7 @@ void Principal::menuCarregar()
 void Principal::menu()
 {
   int op = -1;
-  while (op != 3)
+  while (op != 5)
   {
     system("cls");
     cout << "Informe sua opcao: " << endl;
@@ -548,12 +548,12 @@ void Principal::menu()
     case 5:
     {
       cout << "Saindo..." << endl;
+      system("Pause");
     }
     break;
     default:
     {
       cout << "Opcao invalida!" << endl;
-      system("Pause");
     }
     }
   }

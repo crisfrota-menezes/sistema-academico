@@ -1,8 +1,5 @@
 #pragma once
-
 #include "aluno.hpp"
-
-class Disciplina;
 
 class elAluno
 {
@@ -19,5 +16,4 @@ public:
   void setAluno(Aluno *pA);
   Aluno *getAluno();
   char *getNome();
-  char *getNomeDisciplina();
 };

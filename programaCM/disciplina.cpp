@@ -37,7 +37,6 @@ Departamento *Disciplina::getDepartamento()
 
 void Disciplina::incluirAluno(Aluno *pA)
 {
-  pA->setDisciplina(this); // configura o ponteiro para a disciplina
   ObjAlunos.incluirAluno(pA);
 }
 
