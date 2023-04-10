@@ -1,6 +1,0 @@
-0 Moda
-1 Tecnologia da UTFPR
-2 Informatica da UTFPR
-3 Fisica
-4 Matematica
-5 DAINF
