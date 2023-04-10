@@ -1,0 +1,49 @@
+#pragma once
+#include "aluno.hpp"
+
+class elAluno
+{
+private:
+  Aluno *pAluno;
+
+public:
+  elAluno();
+  ~elAluno();
+
+  elAluno *pAnte;
+  elAluno *pProx;
+
+  void setAluno(Aluno *pA);
+  Aluno *getAluno();
+  char *getNome();
+};
+
+#include "elAluno.hpp"
+#include "disciplina.hpp"
+
+elAluno::elAluno()
+{
+  pProx = NULL;
+  pAnte = NULL;
+}
+
+elAluno::~elAluno()
+{
+  pProx = NULL;
+  pAnte = NULL;
+}
+
+void elAluno::setAluno(Aluno *pA)
+{
+  pAluno = pA;
+}
+
+Aluno *elAluno::getAluno()
+{
+  return pAluno;
+}
+
+char *elAluno::getNome()
+{
+  return pAluno->getNome();
+}

@@ -35,8 +35,8 @@ void listaAlunos::incluirAluno(Aluno *pa)
   //  Aqui recebe uma cópia do objeto interm.
   paux->setInfo(pa);
 
-  paux->pProx = NULL;
-  paux->pAnte = NULL;
+  paux->setProximo(NULL);
+  paux->setAnterior(NULL);
 
   if ((cont_alunos < numero_alunos) && (pa != NULL))
   {
@@ -48,8 +48,8 @@ void listaAlunos::incluirAluno(Aluno *pa)
     }
     else
     {
-      pElAlunoAtual->pProx = paux;
-      paux->pAnte = pElAlunoAtual;
+      pElAlunoAtual->setProximo(paux);
+      paux->setAnterior(pElAlunoAtual);
       pElAlunoAtual = paux;
     }
     cont_alunos++;
@@ -75,7 +75,7 @@ void listaAlunos::listarAlunos()
   {
     pauxAl = pauxEl->getInfo();
     cout << "Aluno " << pauxAl->getNome() << " matriculado na Disciplina " << nome << endl;
-    pauxEl = auxEl->getProximo();
+    pauxEl = pauxEl->getProximo();
   }
 }
 
@@ -87,7 +87,7 @@ void listaAlunos::listarAlunos2()
   {
     pauxAl = pauxEl->getInfo();
     cout << "Aluno " << pauxAl->getNome() << " matriculado na Disciplina " << nome << endl;
-    pauxEl = auxEl->getProximo();
+    pauxEl = pauxEl->getProximo();
   }
 }
 
@@ -108,9 +108,9 @@ void listaAlunos::salveAlunos()
 
   while (sauxElAluno != NULL)
   {
-    sauxAluno = sauxElAluno->getAluno();
+    sauxAluno = sauxElAluno->getInfo();
     sAlunos << sauxAluno->getId() << ' ' << sauxAluno->getRa() << ' ' << sauxAluno->getNome() << endl;
-    sauxElAluno = sauxElAluno->pProx;
+    sauxElAluno = sauxElAluno->getProximo();
   }
   sAlunos.close();
 }
@@ -153,7 +153,7 @@ void listaAlunos::limpaLista()
   aux2 = aux1;
   while (aux1 != NULL)
   {
-    aux2 = aux1->pProx;
+    aux2 = aux1->getProximo();
     delete (aux1);
     aux1 = aux2;
   }
