@@ -1,3 +1,13 @@
 Alguns dos problemas ainda a se resolver que o professor não implementou e nem eu consegui resolver:
-1 - Perca da associação do nome das disciplinas etc... na impressão dos alunos entre outros
+1 - Perca da associação do nome das disciplinas etc... na impressão dos alunos entre outros.
+
+Exemplo:
+ Departamento Moda da universidade .
+ Departamento Tecnologia da UTFPR da universidade . 
+ Departamento Informatica da UTFPR da universidade .
+ Departamento Fisica da universidade .
+ Departamento Matematica da universidade .
+
+É evidente que na execução ao chamar a listagem dos departamentos a universidade que eles estão associados não é impressa. Em algum momento testei uma solução que funcionou até certo ponto, porém os dados eram sobrescrevidos no caso dos alunos de forma que quando um aluno era inserido em mais de uma disciplina a segunda disciplina que ele era inserido sobrescrevia a primeira disciplina que ele havia sido inserido. Não lembro nem tenho esses códigos mais, porém creio que consigo replica-los para continuar futuramente.
+
 2 - Permanencia das relações dos objetos ao salvar e carregar os arquivos que possuem listas de objetos associados como os alunos em cada disciplinas.
