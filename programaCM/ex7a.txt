@@ -1,0 +1,25 @@
+/*Permitir, além da persistência dos objetos, a persistência de suas relações também. Por exemplo, ao gravar um objeto disciplina em arquivo, faz-se necessário também outro arquivo para armazenar o identificador de cada objeto Aluno relacionado. No momento da recuperação dos objetos, os seus relacionamentos podem então ser recuperados por meio destas informações neste arquivo adicional, me mostre seu código para a persistência de objetos e suas relações:
+
+    1. Crie um arquivo para armazenar o identificador de cada objeto Aluno relacionado a um objeto Disciplina. Este arquivo deve ser criado no momento da gravação do objeto Disciplina em arquivo. O nome deste arquivo deve ser o identificador do objeto Disciplina seguido da extensão .rel. Por exemplo, se o identificador do objeto Disciplina for 1, o nome do arquivo deve ser 1.rel. O conteúdo deste arquivo deve ser o identificador de cada objeto Aluno relacionado a este objeto Disciplina. Cada identificador deve ser gravado em uma linha do arquivo. O arquivo deve ser gravado no mesmo diretório do arquivo que armazena o objeto Disciplina.
+
+    2. No momento da recuperação do objeto Disciplina, o arquivo 1.rel deve ser lido para recuperar os identificadores de cada objeto Aluno relacionado a este objeto Disciplina. Estes identificadores devem ser utilizados para recuperar os objetos Aluno relacionados a este objeto Disciplina.
+
+    3. No momento da recuperação do objeto Aluno, o arquivo 1.rel deve ser lido para recuperar os identificadores de cada objeto Disciplina relacionado a este objeto Aluno. Estes identificadores devem ser utilizados para recuperar os objetos Disciplina relacionados a este objeto Aluno.
+
+    4. No momento da recuperação do objeto Universidade, o arquivo 1.rel deve ser lido para recuperar os identificadores de cada objeto Departamento relacionado a este objeto Universidade. Estes identificadores devem ser utilizados para recuperar os objetos Departamento relacionados a este objeto Universidade.
+
+    5. No momento da recuperação do objeto Departamento, o arquivo 1.rel deve ser lido para recuperar os identificadores de cada objeto Disciplina relacionado a este objeto Departamento. Estes identificadores devem ser utilizados para recuperar os objetos Disciplina relacionados a este objeto Departamento.
+
+    6. No momento da recuperação do objeto Departamento, o arquivo 1.rel deve ser lido para recuperar os identificadores de cada objeto Professor relacionado a este objeto Departamento. Estes identificadores devem ser utilizados para recuperar os objetos Professor relacionados a este objeto Departamento.
+
+    7. No momento da recuperação do objeto Professor, o arquivo 1.rel deve ser lido para recuperar os identificadores de cada objeto Disciplina relacionado a este objeto Professor. Estes identificadores devem ser utilizados para recuperar os objetos Disciplina relacionados a este objeto Professor.
+
+    8. No momento da recuperação do objeto Professor, o arquivo 1.rel deve ser lido para recuperar os identificadores de cada objeto Aluno relacionado a este objeto Professor. Estes identificadores devem ser utilizados para recuperar os objetos Aluno relacionados a este objeto Professor.
+
+    9. No momento da recuperação do objeto Aluno, o arquivo 1.rel deve ser lido para recuperar os identificadores de cada objeto Professor relacionado a este objeto Aluno. Estes identificadores devem ser utilizados para recuperar os objetos Professor relacionados a este objeto Aluno.
+
+    10. No momento da recuperação do objeto Aluno, o arquivo 1.rel deve ser lido para recuperar os identificadores de cada objeto Disciplina relacionado a este objeto Aluno. Estes identificadores devem ser utilizados para recuperar os objetos Disciplina relacionados a este objeto Aluno.
+
+    11. No momento da recuperação do objeto Disciplina, o arquivo 1.rel deve ser lido para recuperar os identificadores de cada objeto Professor relacionado a este objeto Disciplina. Estes identificadores devem ser utilizados para recuperar os objetos Professor relacionados a este objeto Disciplina.
+
+    12. No momento da recuperação do objeto Disciplina, o arquivo 1.rel deve ser lido para recuperar os identificadores de cada objeto Aluno relacionado a este objeto Disciplina. Estes identificadores devem ser utilizados para recuperar os objetos Aluno relacionados a este objeto Disciplina. */
