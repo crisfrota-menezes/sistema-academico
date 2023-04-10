@@ -1,0 +1,3 @@
+Alguns dos problemas ainda a se resolver que o professor não implementou e nem eu consegui resolver:
+1 - Perca da associação do nome das disciplinas etc... na impressão dos alunos entre outros
+2 - Permanencia das relações dos objetos ao salvar e carregar os arquivos que possuem listas de objetos associados como os alunos em cada disciplinas.
