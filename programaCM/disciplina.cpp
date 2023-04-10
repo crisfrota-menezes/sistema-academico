@@ -1,7 +1,7 @@
 #include "disciplina.hpp"
 #include <string.h>
 
-Disciplina::Disciplina(int na, const char *ac) : ObjAlunos(na, ac)
+Disciplina::Disciplina(int na, const char *ac) : ObjAlunos()
 {
   pDptoAssociado = NULL;
   strcpy(area_conhecimento, ac);
@@ -33,9 +33,22 @@ Departamento *Disciplina::getDepartamento()
 
 void Disciplina::incluirAluno(Aluno *pA)
 {
-  ObjAlunos.incluirAluno(pA);
+  ObjAlunos.incluirInfo(pA);
 }
 
-void Disciplina::listarAlunos() { ObjAlunos.listarAlunos(); }
+void Disciplina::listarAlunos()
+{
+  // ObjAlunos.listarInfos();
+  elemento<Aluno> *pAux = ObjAlunos.getPrimeiro();
+  while (pAux != NULL)
+  {
+    Aluno *pAluno = pAux->getInfo();
+    cout << "Presente na lista o elemento: " << pAluno->getNome() << "RA: " << pAluno->getRa() << endl;
+    pAux = pAux->getProximo();
+  }
+}
 
-void Disciplina::listarAlunos2() { ObjAlunos.listarAlunos2(); }
+void Disciplina::listarAlunos2()
+{
+  // ObjAlunos.listarAlunos2();
+}

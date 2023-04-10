@@ -42,7 +42,7 @@ private:
   listaUniversidades lUniversidades;
   listaDepartamentos lDepartamentos;
   listaDisciplinas lDisciplinas;
-  listaAlunos lAlunos;
+  lista<Aluno> lAlunos;
 
 public:
   Principal();

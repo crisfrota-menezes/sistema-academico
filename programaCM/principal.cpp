@@ -300,7 +300,7 @@ void Principal::carregarUniversidades() {}
 
 void Principal::carregarDepartamentos()
 {
-  lDepartamentos.carregueDepartamentos();
+  // lDepartamentos.carregueDepartamentos();
 }
 
 void Principal::carregarDisciplinas()

@@ -8,3 +8,5 @@
 #include "listaDepartamento.hpp"
 #include "listaDisciplinas.hpp"
 #include "aluno.hpp"
+#include "elemento.hpp"
+#include "lista.hpp"

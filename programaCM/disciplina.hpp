@@ -1,7 +1,9 @@
 #pragma once
 
 #include "departamento.hpp"
-#include "listaAlunos.hpp"
+#include "lista.hpp"
+#include "aluno.hpp"
+#include "elemento.hpp"
 
 class Disciplina
 {
@@ -11,7 +13,7 @@ private:
   char area_conhecimento[50];
   Departamento *pDptoAssociado;
 
-  listaAlunos ObjAlunos;
+  lista<Aluno> ObjAlunos;
 
 public:
   Disciplina(int na = 45, const char *ac = "");
