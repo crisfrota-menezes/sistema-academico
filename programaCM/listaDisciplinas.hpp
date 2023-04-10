@@ -1,6 +1,6 @@
 #pragma once
 
-#include "elDisciplina.hpp"
+#include "elemento.hpp"
 #include "disciplina.hpp"
 
 class listaDisciplinas
@@ -10,8 +10,8 @@ private:
   int numero_disc;
   char nome[30];
 
-  elDisciplina *pElDisciplinaPrim;
-  elDisciplina *pElDisciplinaAtual;
+  elemento<Disciplina> *pElDisciplinaPrim;
+  elemento<Disciplina> *pElDisciplinaAtual;
 
 public:
   listaDisciplinas(int nd = 1000, const char *n = "");

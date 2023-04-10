@@ -87,7 +87,7 @@ void listaAlunos::listarAlunos2()
   {
     pauxAl = pauxEl->getInfo();
     cout << "Aluno " << pauxAl->getNome() << " matriculado na Disciplina " << nome << endl;
-    pauxEl = pauxEl->getProximo();
+    pauxEl = pauxEl->getAnterior();
   }
 }
 

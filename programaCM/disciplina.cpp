@@ -4,16 +4,12 @@
 Disciplina::Disciplina(int na, const char *ac) : ObjAlunos(na, ac)
 {
   pDptoAssociado = NULL;
-  pProx = NULL;
-  pAnte = NULL;
   strcpy(area_conhecimento, ac);
 }
 
 Disciplina::~Disciplina()
 {
   pDptoAssociado = NULL;
-  pProx = NULL;
-  pAnte = NULL;
 }
 
 void Disciplina::setId(int i) { id = i; }

@@ -17,9 +17,6 @@ public:
   Disciplina(int na = 45, const char *ac = "");
   ~Disciplina();
 
-  Disciplina *pProx;
-  Disciplina *pAnte;
-
   void setId(int i);
   int getId();
 
