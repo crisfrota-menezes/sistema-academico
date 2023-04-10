@@ -28,12 +28,12 @@ listaAlunos::~listaAlunos()
 void listaAlunos::incluirAluno(Aluno *pa)
 {
   // Aqui é criado um ponteiro para LAluno
-  elAluno *paux;
+  elemento<Aluno> *paux;
   // Aqui é criado um objeto LAluno, sendo seu endereço armazenado em aux
-  paux = new elAluno();
-
-  // Aqui recebe uma cópia do objeto interm.
-  paux->setAluno(pa);
+  paux = new elemento<Aluno>();
+  // paux->setNome(pa->getNome());
+  //  Aqui recebe uma cópia do objeto interm.
+  paux->setInfo(pa);
 
   paux->pProx = NULL;
   paux->pAnte = NULL;
@@ -69,27 +69,25 @@ void listaAlunos::incluirAluno(Aluno *pa)
 
 void listaAlunos::listarAlunos()
 {
-  if (NULL != pElAlunoPrim)
+  Aluno *pauxAl = NULL;
+  elemento<Aluno> *pauxEl = pElAlunoPrim;
+  while (NULL != pauxEl)
   {
-    elAluno *aux = pElAlunoPrim;
-    while (NULL != aux)
-    {
-      cout << "Aluno " << aux->getNome() << " matriculado na Disciplina " << nome << endl;
-      aux = aux->pProx;
-    }
+    pauxAl = pauxEl->getInfo();
+    cout << "Aluno " << pauxAl->getNome() << " matriculado na Disciplina " << nome << endl;
+    pauxEl = auxEl->getProximo();
   }
 }
 
 void listaAlunos::listarAlunos2()
 {
-  if (NULL != pElAlunoPrim)
+  Aluno *pauxAl = NULL;
+  elemento<Aluno> *pauxEl = pElAlunoPrim;
+  while (NULL != pauxEl)
   {
-    elAluno *aux = pElAlunoAtual;
-    while (NULL != aux)
-    {
-      cout << "Aluno " << aux->getAluno()->getNome() << " matriculado na Disciplina " << nome << endl;
-      aux = aux->pAnte;
-    }
+    pauxAl = pauxEl->getInfo();
+    cout << "Aluno " << pauxAl->getNome() << " matriculado na Disciplina " << nome << endl;
+    pauxEl = auxEl->getProximo();
   }
 }
 
@@ -104,7 +102,7 @@ void listaAlunos::salveAlunos()
     getchar();
   }
 
-  elAluno *sauxElAluno = NULL;
+  elemento<Aluno> *sauxElAluno = NULL;
   Aluno *sauxAluno = NULL;
   sauxElAluno = pElAlunoPrim;
 
@@ -150,7 +148,7 @@ void listaAlunos::carregueAlunos()
 
 void listaAlunos::limpaLista()
 {
-  elAluno *aux1, *aux2;
+  elemento<Aluno> *aux1, *aux2;
   aux1 = pElAlunoPrim;
   aux2 = aux1;
   while (aux1 != NULL)

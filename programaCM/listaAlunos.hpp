@@ -1,6 +1,6 @@
 #pragma once
 
-#include "elAluno.hpp"
+#include "elemento.hpp"
 #include "aluno.hpp"
 
 class listaAlunos
@@ -10,8 +10,8 @@ private:
   int cont_alunos;
   char nome[30];
 
-  elAluno *pElAlunoPrim;
-  elAluno *pElAlunoAtual;
+  elemento<Aluno> *pElAlunoPrim;
+  elemento<Aluno> *pElAlunoAtual;
 
 public:
   listaAlunos(int na = 45, const char *n = "");
