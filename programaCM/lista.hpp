@@ -13,16 +13,20 @@ class lista
 private:
     elemento<TIPO> *pPrimeiro;
     elemento<TIPO> *pAtual;
+    char nomeL[50];
 
 public:
     lista();
     ~lista();
     void inicializa();
-    void setPrimeiro(elemento<TIPO> *pP);
-    elemento<TIPO> *getPrimeiro();
     bool incluirElemento(elemento<TIPO> *pElemento);
     bool incluirInfo(TIPO *pInfo, const char *nome = "");
     void listarInfos();
+    TIPO *localizar(const char *n);
+    void setNome(const char *n) { strcpy(nomeL, n); }
+    char *getNome() { return nomeL; }
+    elemento<TIPO> *getPrimeiro() { return pPrimeiro; }
+    elemento<TIPO> *getAtual() { return pAtual; }
 };
 
 template <class TIPO>
@@ -42,18 +46,6 @@ void lista<TIPO>::inicializa()
 {
     pPrimeiro = NULL;
     pAtual = NULL;
-}
-
-template <class TIPO>
-void lista<TIPO>::setPrimeiro(elemento<TIPO> *pP)
-{
-    pPrimeiro = pP;
-}
-
-template <class TIPO>
-elemento<TIPO> *lista<TIPO>::getPrimeiro()
-{
-    return pPrimeiro;
 }
 
 template <class TIPO>
@@ -108,4 +100,19 @@ void lista<TIPO>::listarInfos()
         cout << "Elemento na lista " << pAux->getNome() << endl;
         pAux = pAux->getProximo();
     }
+}
+
+template <class TIPO>
+TIPO *lista<TIPO>::localizar(const char *n)
+{
+    elemento<TIPO> *pAux = pPrimeiro;
+    while (pAux != NULL)
+    {
+        if (strcmp(pAux->getNome(), n) == 0)
+        {
+            return pAux->getInfo();
+        }
+        pAux = pAux->getProximo();
+    }
+    return NULL;
 }
