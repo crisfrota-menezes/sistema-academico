@@ -16,7 +16,7 @@ private:
   lista<Aluno> ObjAlunos;
 
 public:
-  Disciplina(int na = 45, const char *ac = "");
+  Disciplina(int i, const char *ac = "");
   ~Disciplina();
 
   void setId(int i);

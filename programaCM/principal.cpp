@@ -57,15 +57,15 @@ void Principal::inicializa()
 void Principal::inicializaAlunos()
 {
   AAA.setNome("AAA");
-  lAlunos.incluirAluno(&AAA);
+  lAlunos.incluirInfo(&AAA, AAA.getNome());
   BBB.setNome("BBB");
-  lAlunos.incluirAluno(&BBB);
+  lAlunos.incluirInfo(&BBB, BBB.getNome());
   CCC.setNome("CCC");
-  lAlunos.incluirAluno(&CCC);
+  lAlunos.incluirInfo(&CCC, CCC.getNome());
   DDD.setNome("DDD");
-  lAlunos.incluirAluno(&DDD);
+  lAlunos.incluirInfo(&DDD, DDD.getNome());
   EEE.setNome("EEE");
-  lAlunos.incluirAluno(&EEE);
+  lAlunos.incluirInfo(&EEE, EEE.getNome());
 }
 
 void Principal::inicializaUniversidades()
@@ -270,7 +270,7 @@ void Principal::cadAluno()
   al->setNome(nomeAluno);
   al->setRa(ra);
 
-  lAlunos.incluirAluno(al);
+  lAlunos.incluirInfo(al, al->getNome());
 }
 /*Funções de salvar e carregar por enquanto ainda vazias: */
 void Principal::salvarTudo() {}
@@ -289,7 +289,7 @@ void Principal::salvarDisciplinas()
 
 void Principal::salvarAlunos()
 {
-  lAlunos.salveAlunos();
+  // lAlunos.salveAlunos();
 }
 
 void Principal::salvarProfessores() {}
@@ -310,7 +310,7 @@ void Principal::carregarDisciplinas()
 
 void Principal::carregarAlunos()
 {
-  lAlunos.carregueAlunos();
+  // lAlunos.carregueAlunos();
 }
 
 void Principal::carregarProfessores() {}
@@ -404,7 +404,7 @@ void Principal::menuExe()
     break;
     case 4:
     {
-      lAlunos.listarAlunos();
+      lAlunos.listarInfos();
       fflush(stdin);
       system("Pause");
     }

@@ -1,8 +1,9 @@
 #include "disciplina.hpp"
 #include <string.h>
 
-Disciplina::Disciplina(int na, const char *ac) : ObjAlunos()
+Disciplina::Disciplina(int i, const char *ac) : ObjAlunos()
 {
+  id = i;
   pDptoAssociado = NULL;
   strcpy(area_conhecimento, ac);
 }
