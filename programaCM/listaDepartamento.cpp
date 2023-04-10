@@ -1,5 +1,11 @@
 #include "listaDepartamento.hpp"
 #include <string.h>
+#include <iostream>
+using std::cerr;
+using std::ios;
+#include <fstream>
+using std::ifstream;
+using std::ofstream;
 
 listaDepartamentos::listaDepartamentos(int nd, const char *n)
 {
@@ -81,4 +87,65 @@ void listaDepartamentos::listeDepartamentos2()
         cout << " Departamento " << pAux->getNome() << " da universidade " << nome << "." << endl;
         pAux = pAux->pAnte;
     }
+}
+
+void listaDepartamentos::salveDepartamentos()
+{
+    ofstream sDepartamento("departamentos.dat", ios::out);
+
+    if (!sDepartamento)
+    {
+        cerr << "Arquivo não pode ser aberto" << endl;
+        fflush(stdin);
+        getchar();
+    }
+
+    elDepartamento *sauxElDep = NULL;
+    Departamento *sauxDep = NULL;
+    sauxElDep = pElDepartamentoPrim;
+    while (sauxElDep != NULL)
+    {
+        sauxDep = sauxElDep->getDepartamento();
+        sDepartamento << sauxDep->getId() << ' ' << sauxDep->getNome() << endl;
+        sauxElDep = sauxElDep->pProx;
+    }
+    sDepartamento.close();
+}
+
+void listaDepartamentos::carregueDepartamentos()
+{
+    ifstream cDepartamento("departamentos.dat", ios::in);
+
+    if (!cDepartamento)
+    {
+        cerr << "Arquivo não pode ser aberto" << endl;
+        fflush(stdin);
+        getchar();
+    }
+
+    int id;
+    char nomeDep[30];
+    Departamento *cAuxDep = NULL;
+
+    while (cDepartamento >> id >> nomeDep)
+    {
+        cAuxDep = new Departamento(id);
+        incluiDepartamento(cAuxDep);
+    }
+    cDepartamento.close();
+}
+
+Departamento *listaDepartamentos::localizar(const char *n)
+{
+    elDepartamento *pAux;
+    pAux = pElDepartamentoPrim;
+    while (pAux != NULL)
+    {
+        if (strcmp(pAux->getNome(), n) == 0)
+        {
+            return pAux->getDepartamento();
+        }
+        pAux = pAux->pProx;
+    }
+    return NULL;
 }

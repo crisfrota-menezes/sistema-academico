@@ -18,6 +18,9 @@ public:
   Departamento(int i);
   ~Departamento();
 
+  void setId(int i);
+  int getId();
+
   void setNome(const char *n);
   char *getNome();
 

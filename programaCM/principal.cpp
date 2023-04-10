@@ -183,6 +183,34 @@ void Principal::executar()
 
 void Principal::cadDisciplina()
 {
+  cout << "Cadastro de Disciplina" << endl;
+  using namespace std::chrono;
+  using namespace std::this_thread;
+  char nomeDepartamento[100];
+  char nomeDisciplina[100];
+  Departamento *pDep;
+  Disciplina *pDisc;
+  cout << "Informe o nome do departamento: ";
+  cin >> nomeDepartamento;
+  pDep = lDepartamentos.localizar(nomeDepartamento);
+  if (pDep != NULL)
+  {
+    cout << "Informe o nome da disciplina: ";
+    cin >> nomeDisciplina;
+    pDisc = new Disciplina(cont_idDisc);
+    cont_idDisc++;
+    pDisc->setNome(nomeDisciplina);
+    pDisc->setDepartamento(pDep);
+    lDisciplinas.incluiDisciplina(pDisc);
+    lDepartamentos.incluiDepartamento(pDep);
+    pDep->incluiDisciplina(pDisc);
+  }
+  else
+  {
+    cout << "Departamento nao encontrado" << endl;
+    cout << "Tente novamente em 3 segundos..." << endl;
+    sleep_for(seconds(3));
+  }
 }
 
 void Principal::cadDepartamento()
@@ -249,9 +277,15 @@ void Principal::salvarTudo() {}
 
 void Principal::salvarUniversidades() {}
 
-void Principal::salvarDepartamentos() {}
+void Principal::salvarDepartamentos()
+{
+  lDepartamentos.salveDepartamentos();
+}
 
-void Principal::salvarDisciplinas() {}
+void Principal::salvarDisciplinas()
+{
+  lDisciplinas.salveDisciplinas();
+}
 
 void Principal::salvarAlunos()
 {
@@ -264,9 +298,15 @@ void Principal::carregarTudo() {}
 
 void Principal::carregarUniversidades() {}
 
-void Principal::carregarDepartamentos() {}
+void Principal::carregarDepartamentos()
+{
+  lDepartamentos.carregueDepartamentos();
+}
 
-void Principal::carregarDisciplinas() {}
+void Principal::carregarDisciplinas()
+{
+  lDisciplinas.carregueDisciplinas();
+}
 
 void Principal::carregarAlunos()
 {

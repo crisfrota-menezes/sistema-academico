@@ -24,4 +24,10 @@ public:
     void incluiDepartamento(Departamento *pDe);
     void listeDepartamentos();
     void listeDepartamentos2();
+
+    void salveDepartamentos();
+    void carregueDepartamentos();
+
+    void limpaLista();
+    Departamento *localizar(const char *n);
 };

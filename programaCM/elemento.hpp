@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 template<class TIPO>
 class elemento
@@ -40,7 +40,7 @@ elemento<TIPO>::~elemento ( )
 
 template<class TIPO>
 void elemento<TIPO>::setProximo ( elemento<TIPO>* pP )
-{ 
+{
    pProximo = pP;
 }
 
@@ -84,4 +84,4 @@ template<class TIPO>
 char* elemento<TIPO>::getNome ()
 {
    return nome;
-} 
+}*/

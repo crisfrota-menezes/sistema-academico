@@ -22,4 +22,9 @@ public:
   void incluiDisciplina(Disciplina *pDi);
   void listeDisciplinas();
   void listeDisciplinas2();
+
+  void salveDisciplinas();
+  void carregueDisciplinas();
+
+  void limpaLista();
 };

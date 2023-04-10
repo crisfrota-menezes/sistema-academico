@@ -23,6 +23,16 @@ Departamento::~Departamento()
   }
 }
 
+void Departamento::setId(int i)
+{
+  id = i;
+}
+
+int Departamento::getId()
+{
+  return id;
+}
+
 void Departamento::setNome(const char *n)
 {
   strcpy(nomeD, n);

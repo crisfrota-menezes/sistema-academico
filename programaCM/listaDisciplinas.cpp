@@ -1,4 +1,10 @@
 #include "listaDisciplinas.hpp"
+#include <iostream>
+using std::cerr;
+using std::ios;
+#include <fstream>
+using std::ifstream;
+using std::ofstream;
 
 listaDisciplinas::listaDisciplinas(int nd, const char *n)
 {
@@ -81,4 +87,66 @@ void listaDisciplinas::listeDisciplinas2()
     cout << "A disciplina " << pAux->getNome() << " pertence ao Departamento " << nome << endl;
     pAux = pAux->pAnte;
   }
+}
+
+void listaDisciplinas::salveDisciplinas()
+{
+  ofstream sDisciplina("disciplinas.dat", ios::out);
+
+  if (!sDisciplina)
+  {
+    cerr << "Arquivo não pode ser aberto" << endl;
+    fflush(stdin);
+    getchar();
+  }
+
+  elDisciplina *sauxElDisc = NULL;
+  Disciplina *sauxDisc = NULL;
+  sauxElDisc = pElDisciplinaPrim;
+
+  while (sauxElDisc != NULL)
+  {
+    sauxDisc = sauxElDisc->getDisciplina();
+    sDisciplina << sauxDisc->getId() << ' ' << sauxDisc->getNome() << endl;
+    sauxElDisc = sauxElDisc->pProx;
+  }
+  sDisciplina.close();
+}
+
+void listaDisciplinas::carregueDisciplinas()
+{
+  ifstream cDisciplina("disciplinas.dat", ios::in);
+
+  if (!cDisciplina)
+  {
+    cerr << "Arquivo não pode ser aberto" << endl;
+    fflush(stdin);
+    getchar();
+  }
+
+  Disciplina *cauxDisc = NULL;
+  int id;
+  char nomeDisc[30];
+
+  while (cDisciplina >> id >> nomeDisc)
+  {
+    cauxDisc = new Disciplina(id, nomeDisc);
+    incluiDisciplina(cauxDisc);
+  }
+  cDisciplina.close();
+}
+
+void listaDisciplinas::limpaLista()
+{
+  elDisciplina *paux1, *paux2;
+  paux1 = pElDisciplinaPrim;
+  paux2 = paux1;
+  while (paux1 != NULL)
+  {
+    paux2 = paux1->pProx;
+    delete (paux1);
+    paux1 = paux2;
+  }
+  pElDisciplinaPrim = NULL;
+  pElDisciplinaAtual = NULL;
 }
