@@ -1,21 +1,20 @@
 #pragma once
 
-#include "listaDepartamento.hpp"
+#include "lista.hpp"
+#include "departamento.hpp"
 
 class Universidade
 {
 private:
   int id;
   char nomeU[30];
-  listaDepartamentos ObjLDepartamentos;
+  lista<Departamento> ObjLDepartamentos;
 
 public:
   Universidade();
   ~Universidade();
-
   void setNome(const char *n);
   char *getNome();
-
   void incluiDepartamento(Departamento *pd);
   void listeDepartamentos();
   void listeDepartamentos2();

@@ -38,9 +38,9 @@ private:
   int mesAtual;
   int anoAtual;
 
-  listaUniversidades lUniversidades;
-  listaDepartamentos lDepartamentos;
-  listaDisciplinas lDisciplinas;
+  lista<Universidade> lUniversidades;
+  lista<Departamento> lDepartamentos;
+  lista<Disciplina> lDisciplinas;
   lista<Aluno> lAlunos;
 
 public:

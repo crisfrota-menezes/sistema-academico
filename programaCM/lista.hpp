@@ -12,93 +12,68 @@ class lista
 {
 private:
     elemento<TIPO> *pPrimeiro;
-    elemento<TIPO> *pAtual;
+    elemento<TIPO> *pUltimo;
     char nomeL[50];
 
 public:
     lista();
     ~lista();
-    void inicializa();
-    bool incluirElemento(elemento<TIPO> *pElemento);
-    bool incluirInfo(TIPO *pInfo, const char *nome = "");
+    void incluirInfo(TIPO *pInfo, const char *nome = "");
     void listarInfos();
     TIPO *localizar(const char *n);
     void setNome(const char *n) { strcpy(nomeL, n); }
     char *getNome() { return nomeL; }
     elemento<TIPO> *getPrimeiro() { return pPrimeiro; }
-    elemento<TIPO> *getAtual() { return pAtual; }
+    elemento<TIPO> *getAtual() { return pUltimo; }
 };
-
 template <class TIPO>
 lista<TIPO>::lista()
 {
-    inicializa();
+    pPrimeiro = NULL;
+    pUltimo = NULL;
 }
 
 template <class TIPO>
 lista<TIPO>::~lista()
 {
-    inicializa();
-}
-
-template <class TIPO>
-void lista<TIPO>::inicializa()
-{
+    elemento<TIPO> *pAtua = pPrimeiro;
+    elemento<TIPO> *pProxim = NULL;
+    while (pAtua != NULL)
+    {
+        pProxim = pAtua->getProximo();
+        delete pAtua;
+        pAtua = pProxim;
+    }
     pPrimeiro = NULL;
-    pAtual = NULL;
+    pUltimo = NULL;
 }
-
 template <class TIPO>
-bool lista<TIPO>::incluirElemento(elemento<TIPO> *pElemento)
+void lista<TIPO>::incluirInfo(TIPO *pI, const char *nome)
 {
-    if (NULL != pElemento)
+    elemento<TIPO> *pNovo = new elemento<TIPO>;
+    pNovo->setInfo(pI);
+    pNovo->setNome(nome);
+    if (pPrimeiro == NULL)
     {
-        if (NULL == pPrimeiro)
-        {
-            pPrimeiro = pElemento;
-            pAtual = pElemento;
-        }
-        else
-        {
-            pElemento->setProximo(pAtual);
-            pAtual->setProximo(pElemento);
-            pAtual = pAtual->getProximo();
-        }
-        return true;
+        pPrimeiro = pNovo;
+        pUltimo = pNovo;
     }
     else
     {
-        cout << "Erro: elemento nulo" << endl;
-        return false;
-    }
-}
-
-template <class TIPO>
-bool lista<TIPO>::incluirInfo(TIPO *pInfo, const char *nome)
-{
-    if (NULL != pInfo)
-    {
-        elemento<TIPO> *pElemento = new elemento<TIPO>();
-        pElemento->setInfo(pInfo);
-        pElemento->setNome(nome);
-        incluirElemento(pElemento);
-        return true;
-    }
-    else
-    {
-        cout << "Erro: info nula" << endl;
-        return false;
+        pUltimo->setProximo(pNovo);
+        pNovo->setAnterior(pUltimo);
+        pUltimo = pNovo;
     }
 }
 
 template <class TIPO>
 void lista<TIPO>::listarInfos()
 {
-    elemento<TIPO> *pAux = pPrimeiro;
-    while (pAux != NULL)
+    elemento<TIPO> *pAtual = pPrimeiro;
+    while (pAtual != NULL)
     {
-        cout << "Elemento na lista " << pAux->getNome() << endl;
-        pAux = pAux->getProximo();
+        cout << "Elemento na lista " << pAtual->getNome() << endl;
+        pAtual = pAtual->getProximo();
     }
 }
 

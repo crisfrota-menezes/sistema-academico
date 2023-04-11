@@ -4,11 +4,9 @@ Pessoa::Pessoa(int diaNa, int mesNa, int anoNa, const char *nome)
 {
   inicializa(diaNa, mesNa, anoNa, nome);
 }
-
 Pessoa::Pessoa()
 {
 }
-
 void Pessoa::inicializa(int diaNa, int mesNa, int anoNa, const char *nome)
 {
   idadeP = 0;
@@ -18,7 +16,6 @@ void Pessoa::inicializa(int diaNa, int mesNa, int anoNa, const char *nome)
   strcpy(nomeP, nome);
   id = -1;
 }
-
 void Pessoa::calcula_idade(int diaAT, int mesAT, int anoAT)
 {
   idadeP = anoAT - anoP;
@@ -33,7 +30,6 @@ void Pessoa::calcula_idade(int diaAT, int mesAT, int anoAT)
   }
   cout << "\nA idade de " << nomeP << " seria " << idadeP << endl;
 }
-
 int Pessoa::getIdade()
 {
   return idadeP;

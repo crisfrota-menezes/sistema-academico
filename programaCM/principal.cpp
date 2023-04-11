@@ -39,11 +39,9 @@ Principal::Principal() : //"geradores" de identificação
 
   inicializa();
 }
-
 Principal::~Principal()
 {
 }
-
 void Principal::inicializa()
 {
   inicializaAlunos();
@@ -53,7 +51,6 @@ void Principal::inicializa()
   inicializaDisciplinas();
   executar();
 }
-
 void Principal::inicializaAlunos()
 {
   AAA.setNome("AAA");
@@ -67,17 +64,15 @@ void Principal::inicializaAlunos()
   EEE.setNome("EEE");
   lAlunos.incluirInfo(&EEE, EEE.getNome());
 }
-
 void Principal::inicializaUniversidades()
 {
   UTFPR.setNome("UTFPR");
-  lUniversidades.incluiUniversidade(&UTFPR);
+  lUniversidades.incluirInfo(&UTFPR, UTFPR.getNome());
   Princeton.setNome("Princeton");
-  lUniversidades.incluiUniversidade(&Princeton);
+  lUniversidades.incluirInfo(&Princeton, Princeton.getNome());
   Cambridge.setNome("Cambridge");
-  lUniversidades.incluiUniversidade(&Cambridge);
+  lUniversidades.incluirInfo(&Cambridge, Cambridge.getNome());
 }
-
 void Principal::inicializaDepartamentos()
 {
   ModaUTFPR.setNome("Moda");
@@ -86,11 +81,11 @@ void Principal::inicializaDepartamentos()
   FisicaPrinceton.setNome("Fisica");
   MatematicaCambridge.setNome("Matematica");
 
-  lDepartamentos.incluiDepartamento(&ModaUTFPR);
-  lDepartamentos.incluiDepartamento(&TecnologiaUTFPR);
-  lDepartamentos.incluiDepartamento(&DAINF);
-  lDepartamentos.incluiDepartamento(&FisicaPrinceton);
-  lDepartamentos.incluiDepartamento(&MatematicaCambridge);
+  lDepartamentos.incluirInfo(&ModaUTFPR, ModaUTFPR.getNome());
+  lDepartamentos.incluirInfo(&TecnologiaUTFPR, TecnologiaUTFPR.getNome());
+  lDepartamentos.incluirInfo(&DAINF, DAINF.getNome());
+  lDepartamentos.incluirInfo(&FisicaPrinceton, FisicaPrinceton.getNome());
+  lDepartamentos.incluirInfo(&MatematicaCambridge, MatematicaCambridge.getNome());
 
   UTFPR.incluiDepartamento(&DAINF);
   UTFPR.incluiDepartamento(&ModaUTFPR);
@@ -98,7 +93,6 @@ void Principal::inicializaDepartamentos()
   Princeton.incluiDepartamento(&FisicaPrinceton);
   Cambridge.incluiDepartamento(&MatematicaCambridge);
 }
-
 void Principal::inicializaProfessores()
 {
   Cristiano.inicializa(28, 5, 2000, "Cristiano");
@@ -113,7 +107,6 @@ void Principal::inicializaProfessores()
   Einstein.setDepartamento(&FisicaPrinceton);
   Newton.setDepartamento(&MatematicaCambridge);
 }
-
 void Principal::inicializaDisciplinas()
 {
   Computacao1_2006.setNome("Computacao I 2006");
@@ -121,10 +114,10 @@ void Principal::inicializaDisciplinas()
   Computacao2_2007.setNome("Computao II");
   Metodos2_2007.setNome("Metodos II");
 
-  lDisciplinas.incluiDisciplina(&Computacao1_2006);
-  lDisciplinas.incluiDisciplina(&Introd_Alg_2007);
-  lDisciplinas.incluiDisciplina(&Computacao2_2007);
-  lDisciplinas.incluiDisciplina(&Metodos2_2007);
+  lDisciplinas.incluirInfo(&Computacao1_2006, Computacao1_2006.getNome());
+  lDisciplinas.incluirInfo(&Introd_Alg_2007, Introd_Alg_2007.getNome());
+  lDisciplinas.incluirInfo(&Computacao2_2007, Computacao2_2007.getNome());
+  lDisciplinas.incluirInfo(&Metodos2_2007, Metodos2_2007.getNome());
 
   Computacao1_2006.setDepartamento(&DAINF);
   Introd_Alg_2007.setDepartamento(&DAINF);
@@ -140,7 +133,6 @@ void Principal::inicializaDisciplinas()
   Computacao2_2007.incluirAluno(&AAA);
   Computacao2_2007.incluirAluno(&EEE);
 }
-
 void Principal::infoProfs()
 {
   Cristiano.calcula_idade(diaAtual, mesAtual, anoAtual);
@@ -155,14 +147,12 @@ void Principal::infoProfs()
   Newton.ondeTrabalho();
   Newton.departamentoQueTrabalho();
 }
-
 void Principal::listaDiscDeptos()
 {
   cout << endl;
   DAINF.listeDisciplinas();
   cout << endl;
 }
-
 void Principal::listaAlunosDisc()
 {
   Computacao1_2006.listarAlunos();
@@ -172,7 +162,6 @@ void Principal::listaAlunosDisc()
   Computacao2_2007.listarAlunos();
   cout << endl;
 }
-
 void Principal::executar()
 {
   // infoProfs();
@@ -180,7 +169,6 @@ void Principal::executar()
   // listaAlunosDisc();
   menu();
 }
-
 void Principal::cadDisciplina()
 {
   cout << "Cadastro de Disciplina" << endl;
@@ -201,8 +189,8 @@ void Principal::cadDisciplina()
     cont_idDisc++;
     pDisc->setNome(nomeDisciplina);
     pDisc->setDepartamento(pDep);
-    lDisciplinas.incluiDisciplina(pDisc);
-    lDepartamentos.incluiDepartamento(pDep);
+    lDisciplinas.incluirInfo(pDisc, nomeDisciplina);
+    lDepartamentos.incluirInfo(pDep);
     pDep->incluiDisciplina(pDisc);
   }
   else
@@ -212,7 +200,6 @@ void Principal::cadDisciplina()
     sleep_for(seconds(3));
   }
 }
-
 void Principal::cadDepartamento()
 {
   using namespace std::chrono;
@@ -232,8 +219,8 @@ void Principal::cadDepartamento()
     cont_idDepart++;
     pDep->setNome(nomeDepartamento);
     pDep->setUniversidade(pUniv);
-    lDepartamentos.incluiDepartamento(pDep);
-    lUniversidades.incluiUniversidade(pUniv);
+    lDepartamentos.incluirInfo(pDep);
+    lUniversidades.incluirInfo(pUniv, nomeUniversidade);
     pUniv->incluiDepartamento(pDep);
   }
   else
@@ -243,7 +230,6 @@ void Principal::cadDepartamento()
     sleep_for(seconds(3));
   }
 }
-
 void Principal::cadUniversidade()
 {
   char nomeUniversidade[100];
@@ -252,9 +238,8 @@ void Principal::cadUniversidade()
   cin >> nomeUniversidade;
   pUniv = new Universidade();
   pUniv->setNome(nomeUniversidade);
-  lUniversidades.incluiUniversidade(pUniv);
+  lUniversidades.incluirInfo(pUniv, nomeUniversidade);
 }
-
 void Principal::cadAluno()
 {
   char nomeAluno[50];
@@ -274,47 +259,35 @@ void Principal::cadAluno()
 }
 /*Funções de salvar e carregar por enquanto ainda vazias: */
 void Principal::salvarTudo() {}
-
 void Principal::salvarUniversidades() {}
-
 void Principal::salvarDepartamentos()
 {
-  lDepartamentos.salveDepartamentos();
+  // lDepartamentos.salveDepartamentos();
 }
-
 void Principal::salvarDisciplinas()
 {
-  lDisciplinas.salveDisciplinas();
+  // lDisciplinas.salveDisciplinas();
 }
-
 void Principal::salvarAlunos()
 {
   // lAlunos.salveAlunos();
 }
-
 void Principal::salvarProfessores() {}
-
 void Principal::carregarTudo() {}
-
 void Principal::carregarUniversidades() {}
-
 void Principal::carregarDepartamentos()
 {
   // lDepartamentos.carregueDepartamentos();
 }
-
 void Principal::carregarDisciplinas()
 {
-  lDisciplinas.carregueDisciplinas();
+  // lDisciplinas.carregueDisciplinas();
 }
-
 void Principal::carregarAlunos()
 {
   // lAlunos.carregueAlunos();
 }
-
 void Principal::carregarProfessores() {}
-
 void Principal::menuCad()
 {
   int op = -1;
@@ -364,7 +337,6 @@ void Principal::menuCad()
     }
   }
 }
-
 void Principal::menuExe()
 {
   int op = -1;
@@ -383,21 +355,21 @@ void Principal::menuExe()
     {
     case 1:
     {
-      lDisciplinas.listeDisciplinas();
+      lDisciplinas.listarInfos();
       fflush(stdin);
       system("Pause");
     }
     break;
     case 2:
     {
-      lDepartamentos.listeDepartamentos();
+      lDepartamentos.listarInfos();
       fflush(stdin);
       system("Pause");
     }
     break;
     case 3:
     {
-      lUniversidades.listeUniversidades();
+      lUniversidades.listarInfos();
       fflush(stdin);
       system("Pause");
     }
@@ -422,7 +394,6 @@ void Principal::menuExe()
     }
   }
 }
-
 void Principal::menuSalvar()
 {
   int op = -1;
@@ -484,7 +455,6 @@ void Principal::menuSalvar()
     }
   }
 }
-
 void Principal::menuCarregar()
 {
   int op = -1;
@@ -548,7 +518,6 @@ void Principal::menuCarregar()
     }
   }
 }
-
 void Principal::menu()
 {
   int op = -1;
