@@ -1,6 +1,6 @@
 #pragma once
 
-#include "elUniversidade.hpp"
+#include "elemento.hpp"
 #include "universidade.hpp"
 
 class listaUniversidades
@@ -10,8 +10,8 @@ private:
     int num_univ;
     char nome[30];
 
-    elUniversidade *pElUniPrimeiro;
-    elUniversidade *pElUniAtual;
+    elemento<Universidade> *pElUniPrimeiro;
+    elemento<Universidade> *pElUniAtual;
 
 public:
     listaUniversidades(int nu = 1000, const char *n = "");

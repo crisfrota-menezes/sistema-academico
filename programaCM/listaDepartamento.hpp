@@ -1,6 +1,6 @@
 #pragma once
 
-#include "elDepartamento.hpp"
+#include "elemento.hpp"
 #include "departamento.hpp"
 #include <iostream>
 using namespace std;
@@ -12,8 +12,8 @@ private:
     int numero_dep;
     char nome[30];
 
-    elDepartamento *pElDepartamentoPrim;
-    elDepartamento *pElDepartamentoAtual;
+    elemento<Departamento> *pElDepartamentoPrim;
+    elemento<Departamento> *pElDepartamentoAtual;
 
 public:
     listaDepartamentos(int nd = 1000, const char *n = "");

@@ -12,12 +12,12 @@ listaUniversidades::listaUniversidades(int nu, const char *n)
 
 listaUniversidades::~listaUniversidades()
 {
-    elUniversidade *pElUniAux1, *pElUniAux2;
+    elemento<Universidade> *pElUniAux1, *pElUniAux2;
     pElUniAux1 = pElUniPrimeiro;
     pElUniAux2 = pElUniAux1;
     while (pElUniAux1 != NULL)
     {
-        pElUniAux2 = pElUniAux1->pProx;
+        pElUniAux2 = pElUniAux1->getProximo();
         delete pElUniAux1;
         pElUniAux1 = pElUniAux2;
     }
@@ -28,10 +28,8 @@ listaUniversidades::~listaUniversidades()
 
 void listaUniversidades::incluiUniversidade(Universidade *pU)
 {
-    elUniversidade *pElUniAux = new elUniversidade();
-    pElUniAux->setUniversidade(pU);
-    pElUniAux->pProx = NULL;
-    pElUniAux->pAnte = NULL;
+    elemento<Universidade> *pElUniAux = new elemento<Universidade>();
+    pElUniAux->setInfo(pU);
     if (
         ((cont_univ < num_univ) && (pU != NULL)) ||
         ((num_univ == -1) && (pU != NULL)))
@@ -44,8 +42,8 @@ void listaUniversidades::incluiUniversidade(Universidade *pU)
         }
         else
         {
-            pElUniAtual->pProx = pElUniAux;
-            pElUniAux->pAnte = pElUniAtual;
+            pElUniAtual->setProximo(pElUniAux);
+            pElUniAux->setAnterior(pElUniAtual);
             pElUniAtual = pElUniAux;
         }
         cont_univ++;
@@ -58,34 +56,38 @@ void listaUniversidades::incluiUniversidade(Universidade *pU)
 
 void listaUniversidades::listeUniversidades()
 {
-    elUniversidade *pElUniAux = pElUniPrimeiro;
+    Universidade *pUniAux = NULL;
+    elemento<Universidade> *pElUniAux = pElUniPrimeiro;
     while (pElUniAux != NULL)
     {
-        cout << pElUniAux->getNome() << endl;
-        pElUniAux = pElUniAux->pProx;
+        pUniAux = pElUniAux->getInfo();
+        cout << pUniAux->getNome() << endl;
+        pElUniAux = pElUniAux->getProximo();
     }
 }
 
 void listaUniversidades::listeUniversidades2()
 {
-    elUniversidade *pElUniAux = pElUniAtual;
+    Universidade *pUniAux = NULL;
+    elemento<Universidade> *pElUniAux = pElUniPrimeiro;
     while (pElUniAux != NULL)
     {
-        cout << pElUniAux->getNome() << endl;
-        pElUniAux = pElUniAux->pAnte;
+        pUniAux = pElUniAux->getInfo();
+        cout << pUniAux->getNome() << endl;
+        pElUniAux = pElUniAux->getAnterior();
     }
 }
 
 Universidade *listaUniversidades::localizar(const char *n)
 {
-    elUniversidade *pElUniAux = pElUniPrimeiro;
+    elemento<Universidade> *pElUniAux = pElUniPrimeiro;
     while (pElUniAux != NULL)
     {
         if (strcmp(n, pElUniAux->getNome()) == 0)
         {
-            return pElUniAux->getUniversidade();
+            return pElUniAux->getInfo();
         }
-        pElUniAux = pElUniAux->pProx;
+        pElUniAux = pElUniAux->getProximo();
     }
     return NULL;
 }

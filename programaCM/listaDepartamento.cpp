@@ -18,11 +18,11 @@ listaDepartamentos::listaDepartamentos(int nd, const char *n)
 
 listaDepartamentos::~listaDepartamentos()
 {
-    elDepartamento *paux1, *paux2;
+    elemento<Departamento> *paux1, *paux2;
     paux1 = pElDepartamentoPrim;
     while (paux1 != NULL)
     {
-        paux2 = paux1->pProx;
+        paux2 = paux1->getProximo();
         delete paux1;
         paux1 = paux2;
     }
@@ -37,11 +37,10 @@ void listaDepartamentos::setNome(const char *n)
 
 void listaDepartamentos::incluiDepartamento(Departamento *pDe)
 {
-    elDepartamento *pAux;
-    pAux = new elDepartamento;
-    pAux->setDepartamento(pDe);
-    pAux->pProx = NULL;
-    pAux->pAnte = NULL;
+    elemento<Departamento> *pAux;
+    pAux = new elemento<Departamento>();
+    // pAux->setNome(pDe->getNome());
+    pAux->setInfo(pDe);
 
     if (
         ((cont_dep < numero_dep) && (pDe != NULL)) ||
@@ -55,8 +54,8 @@ void listaDepartamentos::incluiDepartamento(Departamento *pDe)
         }
         else
         {
-            pElDepartamentoAtual->pProx = pAux;
-            pAux->pAnte = pElDepartamentoAtual;
+            pElDepartamentoAtual->setProximo(pAux);
+            pAux->setAnterior(pElDepartamentoAtual);
             pElDepartamentoAtual = pAux;
         }
         cont_dep++;
@@ -69,23 +68,25 @@ void listaDepartamentos::incluiDepartamento(Departamento *pDe)
 
 void listaDepartamentos::listeDepartamentos()
 {
-    elDepartamento *pAux;
-    pAux = pElDepartamentoPrim;
-    while (pAux != NULL)
+    Departamento *pAuxDep = NULL;
+    elemento<Departamento> *pAuxElDep = pElDepartamentoPrim;
+    while (pAuxElDep != NULL)
     {
-        cout << " Departamento " << pAux->getNome() << " da universidade " << nome << "." << endl;
-        pAux = pAux->pProx;
+        pAuxDep = pAuxElDep->getInfo();
+        cout << " Departamento " << pAuxDep->getNome() << " da universidade " << nome << "." << endl;
+        pAuxElDep = pAuxElDep->getProximo();
     }
 }
 
 void listaDepartamentos::listeDepartamentos2()
 {
-    elDepartamento *pAux;
-    pAux = pElDepartamentoAtual;
-    while (pAux != NULL)
+    Departamento *pAuxDep = NULL;
+    elemento<Departamento> *pAuxElDep = pElDepartamentoPrim;
+    while (pAuxElDep != NULL)
     {
-        cout << " Departamento " << pAux->getNome() << " da universidade " << nome << "." << endl;
-        pAux = pAux->pAnte;
+        pAuxDep = pAuxElDep->getInfo();
+        cout << " Departamento " << pAuxDep->getNome() << " da universidade " << nome << "." << endl;
+        pAuxElDep = pAuxElDep->getAnterior();
     }
 }
 
@@ -100,14 +101,14 @@ void listaDepartamentos::salveDepartamentos()
         getchar();
     }
 
-    elDepartamento *sauxElDep = NULL;
+    elemento<Departamento> *sauxElDep = NULL;
     Departamento *sauxDep = NULL;
     sauxElDep = pElDepartamentoPrim;
     while (sauxElDep != NULL)
     {
-        sauxDep = sauxElDep->getDepartamento();
+        sauxDep = sauxElDep->getInfo();
         sDepartamento << sauxDep->getId() << ' ' << sauxDep->getNome() << endl;
-        sauxElDep = sauxElDep->pProx;
+        sauxElDep = sauxElDep->getProximo();
     }
     sDepartamento.close();
 }
@@ -137,15 +138,15 @@ void listaDepartamentos::carregueDepartamentos()
 
 Departamento *listaDepartamentos::localizar(const char *n)
 {
-    elDepartamento *pAux;
+    elemento<Departamento> *pAux;
     pAux = pElDepartamentoPrim;
     while (pAux != NULL)
     {
         if (strcmp(pAux->getNome(), n) == 0)
         {
-            return pAux->getDepartamento();
+            return pAux->getInfo();
         }
-        pAux = pAux->pProx;
+        pAux = pAux->getProximo();
     }
     return NULL;
 }

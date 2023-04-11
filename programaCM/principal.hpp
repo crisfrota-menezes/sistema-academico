@@ -5,7 +5,6 @@
 class Principal
 {
 private:
-  /*Para cada classe existente no sistema, criar um atributo Id que servirá para identificar de forma única um objeto. Assim sendo, a cada objeto criado/instanciado, atribuir um id único para ele.*/
   int cont_idDisc;
   int cont_idDepart;
   int cont_idAluno;
@@ -65,9 +64,6 @@ public:
   void cadDepartamento();
   void cadUniversidade();
   void cadAluno();
-
-  /*Elabore uma solução que permita registrar os “objetos” (i.e.
-suas informações em arquivos) de forma a recuperá-los em uma segunda execução do sistema.*/
 
   void salvarTudo();
   void salvarUniversidades();
