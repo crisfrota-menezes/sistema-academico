@@ -8,7 +8,6 @@ private:
    elemento<TIPO> *pProximo;
    elemento<TIPO> *pAnterior;
    TIPO *pInfo;
-   char nome[150];
 
 public:
    elemento();
@@ -19,8 +18,6 @@ public:
    elemento<TIPO> *getAnterior();
    void setInfo(TIPO *pI);
    TIPO *getInfo();
-   void setNome(const char *n);
-   char *getNome();
 };
 template <class TIPO>
 elemento<TIPO>::elemento()
@@ -67,14 +64,4 @@ template <class TIPO>
 TIPO *elemento<TIPO>::getInfo()
 {
    return pInfo;
-}
-template <class TIPO>
-void elemento<TIPO>::setNome(const char *n)
-{
-   strcpy(nome, n);
-}
-template <class TIPO>
-char *elemento<TIPO>::getNome()
-{
-   return nome;
 }

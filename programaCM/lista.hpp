@@ -14,35 +14,50 @@ private:
 public:
     lista();
     ~lista();
+    void inicializa();
+    void limpar();
     void incluirInfo(TIPO *pInfo, const char *nome = "");
-    void listarInfos();
+    // void listarInfos();
     TIPO *localizar(const char *n);
-    void setNome(const char *n) { strcpy(nomeL, n); }
-    char *getNome() { return nomeL; }
+    /*void setNome(const char *n) { strcpy(nomeL, n); }
+    char *getNome() { return nomeL; }*/
     elemento<TIPO> *getPrimeiro() { return pPrimeiro; }
     elemento<TIPO> *getAtual() { return pUltimo; }
 };
 template <class TIPO>
 lista<TIPO>::lista()
 {
-    pPrimeiro = NULL;
-    pUltimo = NULL;
+    inicializa();
 }
 
 template <class TIPO>
 lista<TIPO>::~lista()
 {
-    elemento<TIPO> *pAtua = pPrimeiro;
-    elemento<TIPO> *pProxim = NULL;
-    while (pAtua != NULL)
+    limpar();
+}
+
+template <class TIPO>
+void lista<TIPO>::inicializa()
+{
+    pPrimeiro = NULL;
+    pUltimo = NULL;
+}
+
+template <class TIPO>
+void lista<TIPO>::limpar()
+{
+    elemento<TIPO> *pAux1 = pPrimeiro;
+    elemento<TIPO> *pAux2 = pAux1;
+    while (pAux1 != NULL)
     {
-        pProxim = pAtua->getProximo();
-        delete pAtua;
-        pAtua = pProxim;
+        pAux2 = pAux1->getProximo();
+        delete pAux1;
+        pAux1 = pAux2;
     }
     pPrimeiro = NULL;
     pUltimo = NULL;
 }
+
 template <class TIPO>
 void lista<TIPO>::incluirInfo(TIPO *pI, const char *nome)
 {
