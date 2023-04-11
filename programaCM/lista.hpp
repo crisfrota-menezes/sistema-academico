@@ -1,11 +1,7 @@
 #pragma once
 
 #include "elemento.hpp"
-#include <cstddef>
-#include <cstring>
-#include <iostream>
-using std::cout;
-using std::endl;
+#include "bibliotecasPadrao.hpp"
 
 template <class TIPO>
 class lista

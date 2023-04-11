@@ -1,5 +1,5 @@
 #include "disciplina.hpp"
-#include <string.h>
+#include "bibliotecasPadrao.hpp"
 
 Disciplina::Disciplina(int i, const char *ac) : ObjAlunos()
 {

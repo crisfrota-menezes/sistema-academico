@@ -1,7 +1,6 @@
 #pragma once
 
-#include <cstddef>
-#include <cstring>
+#include "bibliotecasPadrao.hpp"
 template <class TIPO>
 class elemento
 {

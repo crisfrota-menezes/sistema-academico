@@ -1,5 +1,5 @@
 #include "universidade.hpp"
-#include <string.h>
+#include "bibliotecasPadrao.hpp"
 
 Universidade::Universidade() : ObjLDepartamentos()
 {

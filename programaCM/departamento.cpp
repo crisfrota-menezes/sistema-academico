@@ -1,5 +1,5 @@
 #include "departamento.hpp"
-#include <string.h>
+#include "bibliotecasPadrao.hpp"
 #include "universidade.hpp"
 #include "disciplina.hpp"
 

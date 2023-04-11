@@ -1,7 +1,5 @@
 #include "principal.hpp"
-#include <time.h>
-#include <chrono>
-#include <thread>
+#include "bibliotecasPadrao.hpp"
 
 Principal::Principal() : //"geradores" de identificação
                          cont_idDisc(0),
@@ -172,8 +170,6 @@ void Principal::executar()
 void Principal::cadDisciplina()
 {
   cout << "Cadastro de Disciplina" << endl;
-  using namespace std::chrono;
-  using namespace std::this_thread;
   char nomeDepartamento[100];
   char nomeDisciplina[100];
   Departamento *pDep;
@@ -202,8 +198,6 @@ void Principal::cadDisciplina()
 }
 void Principal::cadDepartamento()
 {
-  using namespace std::chrono;
-  using namespace std::this_thread;
   char nomeUniversidade[100];
   char nomeDepartamento[100];
   Universidade *pUniv;
