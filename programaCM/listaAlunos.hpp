@@ -5,11 +5,13 @@ Já o algoritmos de listagem para os Alunos são específicos e são definidos n
 #pragma once
 
 #include "lista.hpp"
+#include "aluno.hpp"
 
 class ListaAlunos
 {
 private:
-    Lista<Aluno> LTAlunos;
+    lista<Aluno> LTAlunos;
+
 public:
     ListaAlunos();
     ~ListaAlunos();

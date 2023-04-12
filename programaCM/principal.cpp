@@ -52,24 +52,24 @@ void Principal::inicializa()
 void Principal::inicializaAlunos()
 {
   AAA.setNome("AAA");
-  lAlunos.incluirInfo(&AAA, AAA.getNome());
+  lAlunos.incluaInfo(&AAA, AAA.getNome());
   BBB.setNome("BBB");
-  lAlunos.incluirInfo(&BBB, BBB.getNome());
+  lAlunos.incluaInfo(&BBB, BBB.getNome());
   CCC.setNome("CCC");
-  lAlunos.incluirInfo(&CCC, CCC.getNome());
+  lAlunos.incluaInfo(&CCC, CCC.getNome());
   DDD.setNome("DDD");
-  lAlunos.incluirInfo(&DDD, DDD.getNome());
+  lAlunos.incluaInfo(&DDD, DDD.getNome());
   EEE.setNome("EEE");
-  lAlunos.incluirInfo(&EEE, EEE.getNome());
+  lAlunos.incluaInfo(&EEE, EEE.getNome());
 }
 void Principal::inicializaUniversidades()
 {
   UTFPR.setNome("UTFPR");
-  lUniversidades.incluirInfo(&UTFPR, UTFPR.getNome());
+  lUniversidades.incluaInfo(&UTFPR, UTFPR.getNome());
   Princeton.setNome("Princeton");
-  lUniversidades.incluirInfo(&Princeton, Princeton.getNome());
+  lUniversidades.incluaInfo(&Princeton, Princeton.getNome());
   Cambridge.setNome("Cambridge");
-  lUniversidades.incluirInfo(&Cambridge, Cambridge.getNome());
+  lUniversidades.incluaInfo(&Cambridge, Cambridge.getNome());
 }
 void Principal::inicializaDepartamentos()
 {
@@ -79,11 +79,11 @@ void Principal::inicializaDepartamentos()
   FisicaPrinceton.setNome("Fisica");
   MatematicaCambridge.setNome("Matematica");
 
-  lDepartamentos.incluirInfo(&ModaUTFPR, ModaUTFPR.getNome());
-  lDepartamentos.incluirInfo(&TecnologiaUTFPR, TecnologiaUTFPR.getNome());
-  lDepartamentos.incluirInfo(&DAINF, DAINF.getNome());
-  lDepartamentos.incluirInfo(&FisicaPrinceton, FisicaPrinceton.getNome());
-  lDepartamentos.incluirInfo(&MatematicaCambridge, MatematicaCambridge.getNome());
+  lDepartamentos.incluaInfo(&ModaUTFPR, ModaUTFPR.getNome());
+  lDepartamentos.incluaInfo(&TecnologiaUTFPR, TecnologiaUTFPR.getNome());
+  lDepartamentos.incluaInfo(&DAINF, DAINF.getNome());
+  lDepartamentos.incluaInfo(&FisicaPrinceton, FisicaPrinceton.getNome());
+  lDepartamentos.incluaInfo(&MatematicaCambridge, MatematicaCambridge.getNome());
 
   UTFPR.incluiDepartamento(&DAINF);
   UTFPR.incluiDepartamento(&ModaUTFPR);
@@ -112,10 +112,10 @@ void Principal::inicializaDisciplinas()
   Computacao2_2007.setNome("Computao II");
   Metodos2_2007.setNome("Metodos II");
 
-  lDisciplinas.incluirInfo(&Computacao1_2006, Computacao1_2006.getNome());
-  lDisciplinas.incluirInfo(&Introd_Alg_2007, Introd_Alg_2007.getNome());
-  lDisciplinas.incluirInfo(&Computacao2_2007, Computacao2_2007.getNome());
-  lDisciplinas.incluirInfo(&Metodos2_2007, Metodos2_2007.getNome());
+  lDisciplinas.incluaInfo(&Computacao1_2006, Computacao1_2006.getNome());
+  lDisciplinas.incluaInfo(&Introd_Alg_2007, Introd_Alg_2007.getNome());
+  lDisciplinas.incluaInfo(&Computacao2_2007, Computacao2_2007.getNome());
+  lDisciplinas.incluaInfo(&Metodos2_2007, Metodos2_2007.getNome());
 
   Computacao1_2006.setDepartamento(&DAINF);
   Introd_Alg_2007.setDepartamento(&DAINF);
@@ -185,8 +185,8 @@ void Principal::cadDisciplina()
     cont_idDisc++;
     pDisc->setNome(nomeDisciplina);
     pDisc->setDepartamento(pDep);
-    lDisciplinas.incluirInfo(pDisc, nomeDisciplina);
-    lDepartamentos.incluirInfo(pDep);
+    lDisciplinas.incluaInfo(pDisc, nomeDisciplina);
+    lDepartamentos.incluaInfo(pDep);
     pDep->incluiDisciplina(pDisc);
   }
   else
@@ -213,8 +213,8 @@ void Principal::cadDepartamento()
     cont_idDepart++;
     pDep->setNome(nomeDepartamento);
     pDep->setUniversidade(pUniv);
-    lDepartamentos.incluirInfo(pDep);
-    lUniversidades.incluirInfo(pUniv, nomeUniversidade);
+    lDepartamentos.incluaInfo(pDep);
+    lUniversidades.incluaInfo(pUniv, nomeUniversidade);
     pUniv->incluiDepartamento(pDep);
   }
   else
@@ -232,7 +232,7 @@ void Principal::cadUniversidade()
   cin >> nomeUniversidade;
   pUniv = new Universidade();
   pUniv->setNome(nomeUniversidade);
-  lUniversidades.incluirInfo(pUniv, nomeUniversidade);
+  lUniversidades.incluaInfo(pUniv, nomeUniversidade);
 }
 void Principal::cadAluno()
 {
@@ -249,7 +249,7 @@ void Principal::cadAluno()
   al->setNome(nomeAluno);
   al->setRa(ra);
 
-  lAlunos.incluirInfo(al, al->getNome());
+  lAlunos.incluaInfo(al, al->getNome());
 }
 /*Funções de salvar e carregar por enquanto ainda vazias: */
 void Principal::salvarTudo() {}
@@ -349,28 +349,28 @@ void Principal::menuExe()
     {
     case 1:
     {
-      lDisciplinas.listarInfos();
+      //lDisciplinas.listarInfos();
       fflush(stdin);
       system("Pause");
     }
     break;
     case 2:
     {
-      lDepartamentos.listarInfos();
+      //lDepartamentos.listarInfos();
       fflush(stdin);
       system("Pause");
     }
     break;
     case 3:
     {
-      lUniversidades.listarInfos();
+      //lUniversidades.listarInfos();
       fflush(stdin);
       system("Pause");
     }
     break;
     case 4:
     {
-      lAlunos.listarInfos();
+      //lAlunos.listeAlunos();
       fflush(stdin);
       system("Pause");
     }

@@ -25,3 +25,4 @@ using std::ofstream;
 #include <thread>
 using namespace std::chrono;
 using namespace std::this_thread;
+#include <locale.h>

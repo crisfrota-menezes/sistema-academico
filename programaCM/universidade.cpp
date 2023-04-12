@@ -10,7 +10,7 @@ Universidade::~Universidade()
 void Universidade::setNome(const char *n)
 {
   strcpy(nomeU, n);
-  ObjLDepartamentos.setNome(n);
+  //ObjLDepartamentos.setNome(n);
 }
 char *Universidade::getNome()
 {
@@ -22,7 +22,7 @@ void Universidade::incluiDepartamento(Departamento *pd)
 }
 void Universidade::listeDepartamentos()
 {
-  ObjLDepartamentos.listarInfos();
+  //ObjLDepartamentos.listarInfos();
 }
 void Universidade::listeDepartamentos2()
 {

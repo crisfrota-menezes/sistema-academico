@@ -1,9 +1,11 @@
 #include "disciplina.hpp"
 #include "bibliotecasPadrao.hpp"
 
-Disciplina::Disciplina(int i, const char *ac) : ObjAlunos()
+Disciplina::Disciplina(int i, int na, const char *ac) : ObjAlunos()
 {
   id = i;
+  cont_alunos = 0;
+  numero_alunos = na;
   pDptoAssociado = NULL;
   strcpy(area_conhecimento, ac);
 }
@@ -26,23 +28,30 @@ Departamento *Disciplina::getDepartamento()
 }
 void Disciplina::incluirAluno(Aluno *pA)
 {
-  ObjAlunos.incluirInfo(pA);
+  if (NULL != pA)
+  {
+    if (cont_alunos < numero_alunos || numero_alunos == -1)
+    {
+      ObjAlunos.incluaAluno(pA);
+      cont_alunos++;
+    }
+    else
+    {
+      cout << "Numero máximo de alunos atingido!" << endl;
+    }
+  }
+  else
+  {
+    cout << "Erro! Aluno não incluído!" << endl;
+  }
 }
 void Disciplina::listarAlunos()
 {
-  ObjAlunos.listarInfos();
-  /*elemento<Aluno> *pAux = ObjAlunos.getPrimeiro();
-  if (NULL != pPrimeiro)
-  {
-    while (pAux != NULL)
-    {
-      Aluno *pAluno = pAux->getInfo();
-      cout << "Presente na lista o elemento: " << pAluno->getNome() << "RA: " << pAluno->getRa() << endl;
-      pAux = pAux->getProximo();
-    }
-  }*/
+  cout << "\n\nAlunos matriculados na disciplina " << area_conhecimento << ": " << endl;
+  ObjAlunos.listeAlunos();
 }
 void Disciplina::listarAlunos2()
 {
-  // ObjAlunos.listarAlunos2();
+  cout << "\n\nAlunos matriculados na disciplina " << area_conhecimento << ": " << endl;
+  ObjAlunos.listeAlunos2();
 }
