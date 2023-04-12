@@ -48,7 +48,6 @@ void lista<TIPO>::incluirInfo(TIPO *pI, const char *nome)
 {
     elemento<TIPO> *pNovo = new elemento<TIPO>;
     pNovo->setInfo(pI);
-    pNovo->setNome(nome);
     if (pPrimeiro == NULL)
     {
         pPrimeiro = pNovo;
