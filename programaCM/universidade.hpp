@@ -15,6 +15,7 @@ public:
   ~Universidade();
   void setNome(const char *n);
   char *getNome();
+  Universidade *localizarUni();
   void incluiDepartamento(Departamento *pd);
   void listeDepartamentos();
   void listeDepartamentos2();

@@ -15,10 +15,7 @@ private:
 public:
     ListaAlunos();
     ~ListaAlunos();
-    void limpaLista();
     void incluaAluno(Aluno *pA);
     void listeAlunos();
     void listeAlunos2();
-    void salvarAlunos();
-    void carregarAlunos();
 };

@@ -30,12 +30,16 @@ int Departamento::getId()
 void Departamento::setNome(const char *n)
 {
   strcpy(nomeD, n);
-  //pObjLDisciplinas->setNome(n);
+  // pObjLDisciplinas->setNome(n);
 }
 char *
 Departamento::getNome()
 {
   return nomeD;
+}
+Departamento *Departamento::localizarDep()
+{
+  return this;
 }
 void Departamento::setUniversidade(Universidade *dU)
 {
@@ -47,11 +51,11 @@ Universidade *Departamento::getUniversidade()
 }
 void Departamento::incluiDisciplina(Disciplina *pdi)
 {
-  pObjLDisciplinas->incluaInfo(pdi, pdi->getNome());
+  pObjLDisciplinas->incluaInfo(pdi);
 }
 void Departamento::listeDisciplinas()
 {
-  //pObjLDisciplinas->listarInfos();
+  // pObjLDisciplinas->listarInfos();
 }
 void Departamento::listeDisciplinas2()
 {

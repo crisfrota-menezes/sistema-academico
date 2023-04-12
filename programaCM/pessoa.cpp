@@ -34,3 +34,8 @@ int Pessoa::getIdade()
 {
   return idadeP;
 }
+
+void Pessoa::informaProventos()
+{
+  cout << "Pessoa sem proventos" << endl;
+}

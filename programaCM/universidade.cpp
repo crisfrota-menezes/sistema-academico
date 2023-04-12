@@ -16,9 +16,13 @@ char *Universidade::getNome()
 {
   return nomeU;
 }
+Universidade *Universidade::localizarUni()
+{
+  return this;
+}
 void Universidade::incluiDepartamento(Departamento *pd)
 {
-  ObjLDepartamentos.incluirInfo(pd);
+  ObjLDepartamentos.incluaInfo(pd);
 }
 void Universidade::listeDepartamentos()
 {

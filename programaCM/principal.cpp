@@ -52,24 +52,24 @@ void Principal::inicializa()
 void Principal::inicializaAlunos()
 {
   AAA.setNome("AAA");
-  lAlunos.incluaInfo(&AAA, AAA.getNome());
+  lAlunos.incluaAluno(&AAA);
   BBB.setNome("BBB");
-  lAlunos.incluaInfo(&BBB, BBB.getNome());
+  lAlunos.incluaAluno(&BBB);
   CCC.setNome("CCC");
-  lAlunos.incluaInfo(&CCC, CCC.getNome());
+  lAlunos.incluaAluno(&CCC);
   DDD.setNome("DDD");
-  lAlunos.incluaInfo(&DDD, DDD.getNome());
+  lAlunos.incluaAluno(&DDD);
   EEE.setNome("EEE");
-  lAlunos.incluaInfo(&EEE, EEE.getNome());
+  lAlunos.incluaAluno(&EEE);
 }
 void Principal::inicializaUniversidades()
 {
   UTFPR.setNome("UTFPR");
-  lUniversidades.incluaInfo(&UTFPR, UTFPR.getNome());
+  lUniversidades.incluaUniversidade(&UTFPR);
   Princeton.setNome("Princeton");
-  lUniversidades.incluaInfo(&Princeton, Princeton.getNome());
+  lUniversidades.incluaUniversidade(&Princeton);
   Cambridge.setNome("Cambridge");
-  lUniversidades.incluaInfo(&Cambridge, Cambridge.getNome());
+  lUniversidades.incluaUniversidade(&Cambridge);
 }
 void Principal::inicializaDepartamentos()
 {
@@ -79,11 +79,11 @@ void Principal::inicializaDepartamentos()
   FisicaPrinceton.setNome("Fisica");
   MatematicaCambridge.setNome("Matematica");
 
-  lDepartamentos.incluaInfo(&ModaUTFPR, ModaUTFPR.getNome());
-  lDepartamentos.incluaInfo(&TecnologiaUTFPR, TecnologiaUTFPR.getNome());
-  lDepartamentos.incluaInfo(&DAINF, DAINF.getNome());
-  lDepartamentos.incluaInfo(&FisicaPrinceton, FisicaPrinceton.getNome());
-  lDepartamentos.incluaInfo(&MatematicaCambridge, MatematicaCambridge.getNome());
+  lDepartamentos.incluaDepartamento(&ModaUTFPR);
+  lDepartamentos.incluaDepartamento(&TecnologiaUTFPR);
+  lDepartamentos.incluaDepartamento(&DAINF);
+  lDepartamentos.incluaDepartamento(&FisicaPrinceton);
+  lDepartamentos.incluaDepartamento(&MatematicaCambridge);
 
   UTFPR.incluiDepartamento(&DAINF);
   UTFPR.incluiDepartamento(&ModaUTFPR);
@@ -112,10 +112,10 @@ void Principal::inicializaDisciplinas()
   Computacao2_2007.setNome("Computao II");
   Metodos2_2007.setNome("Metodos II");
 
-  lDisciplinas.incluaInfo(&Computacao1_2006, Computacao1_2006.getNome());
-  lDisciplinas.incluaInfo(&Introd_Alg_2007, Introd_Alg_2007.getNome());
-  lDisciplinas.incluaInfo(&Computacao2_2007, Computacao2_2007.getNome());
-  lDisciplinas.incluaInfo(&Metodos2_2007, Metodos2_2007.getNome());
+  lDisciplinas.incluaDisciplina(&Computacao1_2006);
+  lDisciplinas.incluaDisciplina(&Introd_Alg_2007);
+  lDisciplinas.incluaDisciplina(&Computacao2_2007);
+  lDisciplinas.incluaDisciplina(&Metodos2_2007);
 
   Computacao1_2006.setDepartamento(&DAINF);
   Introd_Alg_2007.setDepartamento(&DAINF);
@@ -185,8 +185,8 @@ void Principal::cadDisciplina()
     cont_idDisc++;
     pDisc->setNome(nomeDisciplina);
     pDisc->setDepartamento(pDep);
-    lDisciplinas.incluaInfo(pDisc, nomeDisciplina);
-    lDepartamentos.incluaInfo(pDep);
+    lDisciplinas.incluaDisciplina(pDisc);
+    lDepartamentos.incluaDepartamento(pDep);
     pDep->incluiDisciplina(pDisc);
   }
   else
@@ -213,8 +213,8 @@ void Principal::cadDepartamento()
     cont_idDepart++;
     pDep->setNome(nomeDepartamento);
     pDep->setUniversidade(pUniv);
-    lDepartamentos.incluaInfo(pDep);
-    lUniversidades.incluaInfo(pUniv, nomeUniversidade);
+    lDepartamentos.incluaDepartamento(pDep);
+    lUniversidades.incluaUniversidade(pUniv);
     pUniv->incluiDepartamento(pDep);
   }
   else
@@ -232,7 +232,7 @@ void Principal::cadUniversidade()
   cin >> nomeUniversidade;
   pUniv = new Universidade();
   pUniv->setNome(nomeUniversidade);
-  lUniversidades.incluaInfo(pUniv, nomeUniversidade);
+  lUniversidades.incluaUniversidade(pUniv);
 }
 void Principal::cadAluno()
 {
@@ -249,7 +249,7 @@ void Principal::cadAluno()
   al->setNome(nomeAluno);
   al->setRa(ra);
 
-  lAlunos.incluaInfo(al, al->getNome());
+  lAlunos.incluaAluno(al);
 }
 /*Funções de salvar e carregar por enquanto ainda vazias: */
 void Principal::salvarTudo() {}
@@ -349,28 +349,28 @@ void Principal::menuExe()
     {
     case 1:
     {
-      //lDisciplinas.listarInfos();
+      // lDisciplinas.listarInfos();
       fflush(stdin);
       system("Pause");
     }
     break;
     case 2:
     {
-      //lDepartamentos.listarInfos();
+      // lDepartamentos.listarInfos();
       fflush(stdin);
       system("Pause");
     }
     break;
     case 3:
     {
-      //lUniversidades.listarInfos();
+      // lUniversidades.listarInfos();
       fflush(stdin);
       system("Pause");
     }
     break;
     case 4:
     {
-      //lAlunos.listeAlunos();
+      // lAlunos.listeAlunos();
       fflush(stdin);
       system("Pause");
     }

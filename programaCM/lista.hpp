@@ -9,7 +9,6 @@ class lista
 private:
     elemento<TIPO> *pPrimeiro;
     elemento<TIPO> *pUltimo;
-    char nomeL[50];
 
 public:
     lista();
@@ -19,7 +18,6 @@ public:
     bool incluaElemento(elemento<TIPO> *pElemento);
     bool incluaInfo(TIPO *pInfo);
     // void listarInfos();
-    // TIPO *localizar(const char *n);
     /*void setNome(const char *n) { strcpy(nomeL, n); }
     char *getNome() { return nomeL; }*/
     elemento<TIPO> *getPrimeiro() { return pPrimeiro; }
@@ -60,7 +58,7 @@ void lista<TIPO>::limpar()
 }
 
 template <class TIPO>
-bool lista<TIPO>::incluaElemento(Elemento<TIPO> *pElemento)
+bool lista<TIPO>::incluaElemento(elemento<TIPO> *pElemento)
 {
     if (NULL != pElemento)
     {
@@ -92,8 +90,8 @@ bool lista<TIPO>::incluaInfo(TIPO *pInfo)
 {
     if (NULL != pInfo)
     {
-        Elemento<TIPO> *pElemento = NULL;
-        pElemento = new Elemento<TIPO>();
+        elemento<TIPO> *pElemento = NULL;
+        pElemento = new elemento<TIPO>();
         pElemento->setInfo(pInfo);
         incluaElemento(pElemento);
         return true;
@@ -133,19 +131,4 @@ void lista<TIPO>::listarInfos()
         cout << "Elemento na lista " << pAtual->getNome() << endl;
         pAtual = pAtual->getProximo();
     }
-}*/
-
-/*template <class TIPO>
-TIPO *lista<TIPO>::localizar(const char *n)
-{
-    elemento<TIPO> *pAux = pPrimeiro;
-    while (pAux != NULL)
-    {
-        if (strcmp(pAux->getNome(), n) == 0)
-        {
-            return pAux->getInfo();
-        }
-        pAux = pAux->getProximo();
-    }
-    return NULL;
 }*/

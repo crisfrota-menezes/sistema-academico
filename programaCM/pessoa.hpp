@@ -22,4 +22,5 @@ public:
     int getId() { return id; }
     char *getNome() { return nomeP; };
     void setNome(const char *nome) { strcpy(nomeP, nome); }
+    virtual void informaProventos();
 };

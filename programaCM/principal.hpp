@@ -38,10 +38,10 @@ private:
   int mesAtual;
   int anoAtual;
 
-  lista<Universidade> lUniversidades;
-  lista<Departamento> lDepartamentos;
-  lista<Disciplina> lDisciplinas;
-  lista<Aluno> lAlunos;
+  ListaUniversidade lUniversidades;
+  ListaDepartamento lDepartamentos;
+  ListaDisciplinas lDisciplinas;
+  ListaAlunos lAlunos;
 
 public:
   Principal();

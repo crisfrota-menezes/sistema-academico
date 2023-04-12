@@ -20,6 +20,7 @@ public:
   int getId();
   void setNome(const char *n);
   char *getNome();
+  Departamento *localizarDep();
   void setUniversidade(Universidade *dU);
   Universidade *getUniversidade();
   void incluiDisciplina(Disciplina *dD);
